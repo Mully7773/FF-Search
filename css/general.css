@@ -20,3 +20,13 @@ body {
   font-weight: 400;
   color: #444;
 }
+
+/* Helper/Settings Classes */
+/* ************************ */
+.margin-bottom-sm {
+  margin-bottom: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
