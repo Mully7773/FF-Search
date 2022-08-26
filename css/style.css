@@ -17,9 +17,10 @@ body {
   flex-direction: column;
   align-items: center;
   /* max-width: 21.2rem; */
-  max-height: 100vh;
+  /* max-height: 100vh; */
   padding: 1.2rem 0;
   grid-row: 2 / 3;
+  border-right: 0.1rem solid #333;
 }
 
 .home-link {
@@ -41,7 +42,6 @@ body {
   flex-direction: column;
   gap: 3.2rem;
   align-items: center;
-  /* border-right: 0.1rem solid #333; */
 }
 
 .main-nav-link:link,
@@ -55,4 +55,16 @@ body {
 
 .main-nav-link:hover,
 .main-nav-link:active {
+}
+
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.quick-view-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column: 1 / 3;
 }
