@@ -4,9 +4,14 @@ const characterProfileContainer = document.querySelector(
   ".character-profile--container"
 );
 
+const characterDescriptionContainer = document.querySelector(
+  ".character-description--container"
+);
+
 // Render one character
 const renderOneCharacter = (data) => {
   const characterPicture = data[193].pictures[0].url;
+  const characterName = data[193].name;
   const characterDescription = data[193].description;
   const characterOrigin = data[193].origin;
   const characterRace = data[193].race;
@@ -17,7 +22,6 @@ const renderOneCharacter = (data) => {
   const characterData = data[193];
 
   const html = `<div class="character-profile">
-    <h2 class="character-name">Character Name</h2>
     <img class="character-img" src="${characterPicture}" />
     <div class="character-data-grid">
       <p>Origin: ${characterOrigin}</p>
@@ -29,6 +33,15 @@ const renderOneCharacter = (data) => {
     </div>
   </div>`;
   characterProfileContainer.insertAdjacentHTML("afterbegin", html);
+
+  const descHtml = `
+  <div class="character-description">
+    <h3>${characterName}</h3>
+    <p>
+      ${characterDescription}
+    </p>
+  </div>`;
+  characterDescriptionContainer.insertAdjacentHTML("afterbegin", descHtml);
 };
 
 // Fetch character data
