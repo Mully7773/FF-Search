@@ -77,17 +77,14 @@ const renderFFVII = (data) => {
   </article>
   
   <article class="character-description--container">
-          <!-- <div class="character-description">
+          <div class="character-description">
             <h3>${characterName}</h3>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi
-              nobis quia corrupti placeat laudantium ratione cumque,
-              necessitatibus deserunt aliquam ad ullam expedita sequi nostrum
-              ducimus error officia iste id quisquam?
+            ${characterDescription}
             </p>
-          </div> -->
+          </div>
         </article>`;
-    mainContentEl.insertAdjacentHTML("afterend", html);
+    mainContentEl.insertAdjacentHTML("beforeend", html);
   });
 };
 
