@@ -9,8 +9,8 @@ const characterDescriptionContainer = document.querySelector(
 );
 
 const mainContentEl = document.querySelector(".main-content-grid");
+const selectedGameEl = document.querySelector(".section--selected-game");
 const ffviiEl = document.querySelector(".ffvii");
-
 // Render one character
 // const renderOneCharacter = (data) => {
 //   const characterPicture = data[193].pictures[0].url;
@@ -89,6 +89,17 @@ const renderFFVII = (data) => {
   });
 };
 
+const renderGame = (data) => {
+  const gameLogo = data[6].picture;
+
+  const html = `
+    <div>
+    <img class="selected-game-logo" src="${gameLogo}" alt="Picture of Final Fantasy logo"/>
+  </div>
+    `;
+  selectedGameEl.insertAdjacentHTML("afterbegin", html);
+};
+
 // Fetch character data
 const getCharacterData = async () => {
   try {
@@ -101,6 +112,20 @@ const getCharacterData = async () => {
     console.error(err);
   }
 };
+
+const getGameData = async () => {
+  try {
+    const gameRes = await fetch(`https://www.moogleapi.com/api/v1/games`);
+    if (!gameRes.ok) throw new Error("Problem getting game data");
+    const gameData = await gameRes.json();
+    console.log(gameData);
+    renderGame(gameData);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getGameData();
 
 // getCharacterData();
 
