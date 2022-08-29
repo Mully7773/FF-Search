@@ -9,6 +9,7 @@ const characterDescriptionContainer = document.querySelector(
 );
 
 const mainContentEl = document.querySelector(".main-content-grid");
+const ffviiEl = document.querySelector(".ffvii");
 
 // Render one character
 // const renderOneCharacter = (data) => {
@@ -101,4 +102,6 @@ const getCharacterData = async () => {
   }
 };
 
-getCharacterData();
+// getCharacterData();
+
+// ffviiEl.addEventListener("click", getCharacterData);

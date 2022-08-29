@@ -82,9 +82,11 @@ body {
 
 .quick-view-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  width: 75%;
+  grid-template-columns: repeat(auto-fill, 15rem);
   grid-column: 1 / 3;
-  column-gap: 10rem;
+  /* column-gap: 10rem; */
+  row-gap: 5rem;
   justify-self: center;
   align-items: center;
   padding: 1.2rem 0;
