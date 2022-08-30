@@ -9,6 +9,7 @@ const characterDescriptionContainer = document.querySelector(
 );
 
 const mainContentEl = document.querySelector(".main-content-grid");
+const quickViewEl = document.querySelector(".quick-view-grid");
 const selectedGameEl = document.querySelector(".section--selected-game");
 const ffviiEl = document.querySelector(".ffvii");
 // Render one character
@@ -63,14 +64,12 @@ const renderFFVII = (data) => {
     const characterWeight = data.weight;
 
     const quickSelectHtml = `
-    <article class="quick-view-grid">
     <div>
-    <img class="test-circle" src="${charImgs}"/>
+    <img class="character-circle" src="${charImgs}"/>
     </div>
-  </article>
     `;
 
-    mainContentEl.insertAdjacentHTML("afterbegin", quickSelectHtml);
+    quickViewEl.insertAdjacentHTML("beforeend", quickSelectHtml);
 
     const html = `
     <article class="character-profile--container">

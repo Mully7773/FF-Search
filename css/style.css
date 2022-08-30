@@ -95,12 +95,13 @@ body {
   padding: 1.2rem 0;
 }
 
-.test-circle {
+.character-circle {
   /* background-color: green; */
   width: 12rem;
   height: 12rem;
   border-radius: 50%;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .character-profile--container {
