@@ -12,6 +12,7 @@ const mainContentEl = document.querySelector(".main-content-grid");
 const quickViewEl = document.querySelector(".quick-view-grid");
 const selectedGameEl = document.querySelector(".section--selected-game");
 const ffviiEl = document.querySelector(".ffvii");
+const navList = document.querySelector(".main-nav-list");
 // Render one character
 // const renderOneCharacter = (data) => {
 //   const characterPicture = data[193].pictures[0].url;
@@ -49,7 +50,12 @@ const ffviiEl = document.querySelector(".ffvii");
 // };
 
 const renderFFVII = (data) => {
-  const ffSeven = data.filter((game) => game.origin === "Final Fantasy VII");
+  // // const lastSearched =
+  // let categoryGroup;
+  // let finalGroup;
+  // finalGroup = data;
+
+  const ffSeven = data.filter((game) => game.origin === "Final Fantasy X");
   console.log(ffSeven);
 
   ffSeven.map((data) => {
@@ -69,6 +75,7 @@ const renderFFVII = (data) => {
     </div>
     `;
 
+    // Sorts alphabetically
     quickViewEl.insertAdjacentHTML("beforeend", quickSelectHtml);
 
     const html = `
@@ -99,15 +106,64 @@ const renderFFVII = (data) => {
 };
 
 const renderGame = (data) => {
-  const gameLogo = data[6].picture;
+  let currentGame;
+  // let pictureArray = [];
+  // console.log(data);
+  // data.map((images) => {
+  //   const logos = images.picture;
+  //   pictureArray.push(logos);
+  // });
+  // console.log(pictureArray);
+  // const logo = pictureArray.find(picture => picture.id === e.target.dataset.id)
 
-  const html = `
-    <div>
-    <img class="selected-game-logo" src="${gameLogo}" alt="Picture of Final Fantasy logo"/>
-  </div>
-    `;
-  selectedGameEl.insertAdjacentHTML("afterbegin", html);
+  navList.addEventListener("click", (e) => {
+    let li = e.target.closest("li");
+    let lastSearchedGame = e.target.dataset.id;
+    console.log(lastSearchedGame);
+    const clickedGame = e.target.classList.contains("ffvii");
+
+    // if (e.target.classList.contains("ffvii")) {
+    //   console.log("Clicked FFVII");
+    //   currentGame = data[6].picture;
+    // }
+
+    if (e.target.dataset.id === lastSearchedGame) {
+      lastSearchedGame = e.target.dataset.id;
+      currentGame = data[lastSearchedGame - 1].picture;
+      console.log(currentGame);
+      const html = `
+      <div>
+      <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
+      </div>
+      `;
+      selectedGameEl.insertAdjacentHTML("afterbegin", html);
+    }
+
+    // if (e.target.classList.contains("ffviii")) {
+    //   console.log("Clicked FFVIII");
+    //   currentGame = data[7].picture;
+    //   // return;
+    // }
+
+    // const gameLogo = data[6].picture;
+
+    // const html = `
+    // <div>
+    // <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
+    // </div>
+    // `;
+    // selectedGameEl.insertAdjacentHTML("afterbegin", html);
+  });
 };
+
+// function updateDisplay() {
+//   while (mainContentEl.firstChild) {
+//     mainContentEl.removeChild(mainContentEl.firstChild);
+//   }
+//   for (const data of finalGroup) {
+//     getCharacterData(data);
+//   }
+// }
 
 // Fetch character data
 const getCharacterData = async () => {
@@ -137,6 +193,14 @@ const getGameData = async () => {
 
 getGameData();
 
-getCharacterData();
+// getCharacterData();
 
-// ffviiEl.addEventListener("click", getCharacterData);
+// ffviiEl.addEventListener("click", getCharacterData, { once: true });
+// navList.addEventListener("click", (e) => {
+//   let li = e.target.closest("li");
+//   console.log(li);
+
+//   if (e.target.classList.contains("ffvii")) {
+//     console.log("Clicked FFVII");
+//   }
+// });
