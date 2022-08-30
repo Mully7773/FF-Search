@@ -64,7 +64,7 @@ const renderFFVII = (data) => {
     const characterWeight = data.weight;
 
     const quickSelectHtml = `
-    <div>
+    <div class="character-circle-container">
     <img class="character-circle" src="${charImgs}"/>
     </div>
     `;

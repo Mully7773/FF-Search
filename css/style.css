@@ -79,20 +79,21 @@ body {
 
 .selected-game-logo {
   margin-top: 5rem;
-  width: 30rem;
+  width: 35rem;
   height: 16rem;
 }
 
 .quick-view-grid {
   display: grid;
-  width: 75%;
-  grid-template-columns: repeat(auto-fill, 15rem);
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, 14rem);
   grid-column: 1 / 3;
   /* column-gap: 10rem; */
-  row-gap: 5rem;
-  justify-self: center;
-  align-items: center;
+  gap: 5rem;
+  justify-content: center;
+  /* align-items: center; */
   padding: 1.2rem 0;
+  margin-top: 4.8rem;
 }
 
 .character-circle {
@@ -102,6 +103,12 @@ body {
   border-radius: 50%;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
+}
+
+.character-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .character-profile--container {
