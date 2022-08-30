@@ -62,6 +62,16 @@ const renderFFVII = (data) => {
     const characterAge = data.age;
     const characterWeight = data.weight;
 
+    const quickSelectHtml = `
+    <article class="quick-view-grid">
+    <div>
+    <img class="test-circle" src="${charImgs}"/>
+    </div>
+  </article>
+    `;
+
+    mainContentEl.insertAdjacentHTML("afterbegin", quickSelectHtml);
+
     const html = `
     <article class="character-profile--container">
     <div class="character-profile">
@@ -113,6 +123,7 @@ const getCharacterData = async () => {
   }
 };
 
+// Fetch game data
 const getGameData = async () => {
   try {
     const gameRes = await fetch(`https://www.moogleapi.com/api/v1/games`);
@@ -127,6 +138,6 @@ const getGameData = async () => {
 
 getGameData();
 
-// getCharacterData();
+getCharacterData();
 
 // ffviiEl.addEventListener("click", getCharacterData);
