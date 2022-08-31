@@ -68,7 +68,10 @@ const renderFFVII = (data) => {
     );
     console.log(ffSeven);
 
-    ffSeven.map((data) => {
+    // Initialize variables so that I can append all divs (not just the last one) later using '+=' - set it equal to empty string so that 'undefined' is not displayed
+    let quickSelectHtml = "";
+
+    ffSeven.forEach((data, i) => {
       const charImgs = data.pictures[0].url;
       const characterName = data.name;
       const characterDescription = data.description;
@@ -79,14 +82,23 @@ const renderFFVII = (data) => {
       const characterAge = data.age;
       const characterWeight = data.weight;
 
-      const quickSelectHtml = `
+      console.log(i);
+
+      // '+=' is necessary instead of '=' below otherwise JS will execute all computations before it redraws the page, which means that only the last value of innerHTML would be used
+      quickSelectHtml += `
     <div class="character-circle-container">
     <img class="character-circle" src="${charImgs}"/>
     </div>
     `;
 
+      console.log(quickSelectHtml);
+
+      // console.log(charImgs);
+
       // Sorts alphabetically
-      quickViewEl.insertAdjacentHTML("beforeend", quickSelectHtml);
+      // quickViewEl.insertAdjacentHTML("beforeend", quickSelectHtml);
+
+      quickViewEl.innerHTML = quickSelectHtml;
 
       const html = `
     <article class="character-profile--container">
