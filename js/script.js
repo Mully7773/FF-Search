@@ -131,12 +131,15 @@ const renderGame = (data) => {
       lastSearchedGame = e.target.dataset.id;
       currentGame = data[lastSearchedGame - 1].picture;
       console.log(currentGame);
-      const html = `
-      <div>
+      // const html = `
+      // <div>
+      // <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
+      // </div>
+      // `;
+      // selectedGameEl.insertAdjacentHTML("afterbegin", html);
+      selectedGameEl.innerHTML = `<div>
       <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
-      </div>
-      `;
-      selectedGameEl.insertAdjacentHTML("afterbegin", html);
+      </div>`;
     }
 
     // if (e.target.classList.contains("ffviii")) {
