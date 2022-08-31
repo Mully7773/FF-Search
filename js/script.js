@@ -9,6 +9,12 @@ const characterDescriptionContainer = document.querySelector(
 );
 
 const mainContentEl = document.querySelector(".main-content-grid");
+const characterDetailsEl = document.querySelector(
+  ".character-details-container"
+);
+const characterDescriptionEl = document.querySelector(
+  ".character-description--container"
+);
 const quickViewEl = document.querySelector(".quick-view-grid");
 const selectedGameEl = document.querySelector(".section--selected-game");
 const ffviiEl = document.querySelector(".ffvii");
@@ -59,6 +65,7 @@ const renderFFVII = (data) => {
   navList.addEventListener("click", (e) => {
     let li = e.target.closest("li");
     console.log(li.textContent);
+    // Trims spaces at front of string from <li>
     const liValue = li.textContent.trim();
     console.log(liValue);
 
@@ -70,6 +77,8 @@ const renderFFVII = (data) => {
 
     // Initialize variables so that I can append all divs (not just the last one) later using '+=' - set it equal to empty string so that 'undefined' is not displayed
     let quickSelectHtml = "";
+    let characterViewHtml = "";
+    let characterDescriptionHtml = "";
 
     ffSeven.forEach((data, i) => {
       const charImgs = data.pictures[0].url;
@@ -84,7 +93,7 @@ const renderFFVII = (data) => {
 
       console.log(i);
 
-      // '+=' is necessary instead of '=' below otherwise JS will execute all computations before it redraws the page, which means that only the last value of innerHTML would be used
+      // '+=' is necessary instead of '=' below otherwise JS will execute all computations before it redraws the page, which means that only the last value of innerHTML would be rendered
       quickSelectHtml += `
     <div class="character-circle-container">
     <img class="character-circle" src="${charImgs}"/>
@@ -100,7 +109,8 @@ const renderFFVII = (data) => {
 
       quickViewEl.innerHTML = quickSelectHtml;
 
-      const html = `
+      characterViewHtml += `
+      <div class="character-details-container">
     <article class="character-profile--container">
     <div class="character-profile">
     <img class="character-img" src="${charImgs}" />
@@ -114,16 +124,32 @@ const renderFFVII = (data) => {
     </div>
   </div>
   </article>
+  </div>
+  
+  
   
   <article class="character-description--container">
-          <div class="character-description">
+  <div class="character-description">
             <h3>${characterName}</h3>
             <p>
             ${characterDescription}
             </p>
           </div>
-        </article>`;
-      mainContentEl.insertAdjacentHTML("beforeend", html);
+          </article>
+          `;
+
+      // characterDetailsEl.innerHTML = characterViewHtml;
+      mainContentEl.innerHTML = characterViewHtml;
+
+      // characterDescriptionHtml += `
+      //     <div class="character-description">
+      //       <h3>${characterName}</h3>
+      //       <p>
+      //       ${characterDescription}
+      //       </p>
+      //     </div>`;
+
+      // characterDescriptionEl.innerHTML = characterDescriptionHtml;
     });
   });
 };
