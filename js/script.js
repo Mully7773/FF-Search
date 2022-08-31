@@ -54,31 +54,41 @@ const renderFFVII = (data) => {
   // let categoryGroup;
   // let finalGroup;
   // finalGroup = data;
+  console.log(data);
 
-  const ffSeven = data.filter((game) => game.origin === "Final Fantasy X");
-  console.log(ffSeven);
+  navList.addEventListener("click", (e) => {
+    let li = e.target.closest("li");
+    console.log(li.textContent);
+    const liValue = li.textContent.trim();
+    console.log(liValue);
 
-  ffSeven.map((data) => {
-    const charImgs = data.pictures[0].url;
-    const characterName = data.name;
-    const characterDescription = data.description;
-    const characterOrigin = data.origin;
-    const characterRace = data.race;
-    const characterJob = data.job;
-    const characterHeight = data.height;
-    const characterAge = data.age;
-    const characterWeight = data.weight;
+    const ffSeven = data.filter(
+      (game) => game.origin === liValue
+      // console.log(game.origin);
+    );
+    console.log(ffSeven);
 
-    const quickSelectHtml = `
+    ffSeven.map((data) => {
+      const charImgs = data.pictures[0].url;
+      const characterName = data.name;
+      const characterDescription = data.description;
+      const characterOrigin = data.origin;
+      const characterRace = data.race;
+      const characterJob = data.job;
+      const characterHeight = data.height;
+      const characterAge = data.age;
+      const characterWeight = data.weight;
+
+      const quickSelectHtml = `
     <div class="character-circle-container">
     <img class="character-circle" src="${charImgs}"/>
     </div>
     `;
 
-    // Sorts alphabetically
-    quickViewEl.insertAdjacentHTML("beforeend", quickSelectHtml);
+      // Sorts alphabetically
+      quickViewEl.insertAdjacentHTML("beforeend", quickSelectHtml);
 
-    const html = `
+      const html = `
     <article class="character-profile--container">
     <div class="character-profile">
     <img class="character-img" src="${charImgs}" />
@@ -101,7 +111,8 @@ const renderFFVII = (data) => {
             </p>
           </div>
         </article>`;
-    mainContentEl.insertAdjacentHTML("beforeend", html);
+      mainContentEl.insertAdjacentHTML("beforeend", html);
+    });
   });
 };
 
@@ -118,6 +129,7 @@ const renderGame = (data) => {
 
   navList.addEventListener("click", (e) => {
     let li = e.target.closest("li");
+    // console.log(li.textContent);
     let lastSearchedGame = e.target.dataset.id;
     console.log(lastSearchedGame);
     const clickedGame = e.target.classList.contains("ffvii");
@@ -196,7 +208,7 @@ const getGameData = async () => {
 
 getGameData();
 
-// getCharacterData();
+getCharacterData();
 
 // ffviiEl.addEventListener("click", getCharacterData, { once: true });
 // navList.addEventListener("click", (e) => {
