@@ -67,6 +67,7 @@ body {
   /* justify-content: center; */
   /* align-items: center; */
   grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
   /* grid-auto-rows: auto; */
   /* grid-template-columns: repeat(autofill, 1fr); */
   /* grid-template-rows: repeat(autofill, 1fr); */

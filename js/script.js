@@ -1,23 +1,9 @@
 "use strict";
 
-const characterProfileContainer = document.querySelector(
-  ".character-profile--container"
-);
-
-const characterDescriptionContainer = document.querySelector(
-  ".character-description--container"
-);
-
 const mainContentEl = document.querySelector(".main-content-grid");
-const characterDetailsEl = document.querySelector(
-  ".character-details-container"
-);
-const characterDescriptionEl = document.querySelector(
-  ".character-description--container"
-);
+
 const quickViewEl = document.querySelector(".quick-view-grid");
 const selectedGameEl = document.querySelector(".section--selected-game");
-const ffviiEl = document.querySelector(".ffvii");
 const navList = document.querySelector(".main-nav-list");
 // Render one character
 // const renderOneCharacter = (data) => {
@@ -55,13 +41,7 @@ const navList = document.querySelector(".main-nav-list");
 //   characterDescriptionContainer.insertAdjacentHTML("afterbegin", descHtml);
 // };
 
-const renderFFVII = (data) => {
-  // // const lastSearched =
-  // let categoryGroup;
-  // let finalGroup;
-  // finalGroup = data;
-  console.log(data);
-
+const renderGameData = (data) => {
   navList.addEventListener("click", (e) => {
     let li = e.target.closest("li");
     console.log(li.textContent);
@@ -69,18 +49,17 @@ const renderFFVII = (data) => {
     const liValue = li.textContent.trim();
     console.log(liValue);
 
-    const ffSeven = data.filter(
+    const filteredGame = data.filter(
       (game) => game.origin === liValue
       // console.log(game.origin);
     );
-    console.log(ffSeven);
 
     // Initialize variables so that I can append all divs (not just the last one) later using '+=' - set it equal to empty string so that 'undefined' is not displayed
     let quickSelectHtml = "";
     let characterViewHtml = "";
-    let characterDescriptionHtml = "";
 
-    ffSeven.forEach((data, i) => {
+    filteredGame.forEach((data, i) => {
+      // Save specific data to variables
       const charImgs = data.pictures[0].url;
       const characterName = data.name;
       const characterDescription = data.description;
@@ -96,60 +75,38 @@ const renderFFVII = (data) => {
       // '+=' is necessary instead of '=' below otherwise JS will execute all computations before it redraws the page, which means that only the last value of innerHTML would be rendered
       quickSelectHtml += `
     <div class="character-circle-container">
-    <img class="character-circle" src="${charImgs}"/>
+      <img class="character-circle" src="${charImgs}"/>
     </div>
     `;
-
-      console.log(quickSelectHtml);
-
-      // console.log(charImgs);
+      quickViewEl.innerHTML = quickSelectHtml;
 
       // Sorts alphabetically
       // quickViewEl.insertAdjacentHTML("beforeend", quickSelectHtml);
 
-      quickViewEl.innerHTML = quickSelectHtml;
-
       characterViewHtml += `
-      <div class="character-details-container">
-    <article class="character-profile--container">
-    <div class="character-profile">
-    <img class="character-img" src="${charImgs}" />
-    <div class="character-data-grid">
-      <p>Origin: ${characterOrigin}</p>
-      <p>Race: ${characterRace}</p>
-      <p>Job: ${characterJob}</p>
-      <p>Height: ${characterHeight}</p>
-      <p>Age: ${characterAge}</p>
-      <p>Weight: ${characterWeight}</p>
+    <div class="character-details-container">
+      <article class="character-profile--container">
+        <div class="character-profile">
+          <img class="character-img" src="${charImgs}" />
+            <div class="character-data-grid">
+              <p>Origin: ${characterOrigin}</p>
+              <p>Race: ${characterRace}</p>
+              <p>Job: ${characterJob}</p>
+              <p>Height: ${characterHeight}</p>
+              <p>Age: ${characterAge}</p>
+              <p>Weight: ${characterWeight}</p>
+            </div>
+        </div>
+      </article>
     </div>
-  </div>
-  </article>
-  </div>
   
-  
-  
-  <article class="character-description--container">
-  <div class="character-description">
-            <h3>${characterName}</h3>
-            <p>
-            ${characterDescription}
-            </p>
-          </div>
-          </article>
-          `;
-
-      // characterDetailsEl.innerHTML = characterViewHtml;
+    <article class="character-description--container">
+      <div class="character-description">
+        <h3>${characterName}</h3>
+        <p>${characterDescription}</p>
+      </div>
+    </article>`;
       mainContentEl.innerHTML = characterViewHtml;
-
-      // characterDescriptionHtml += `
-      //     <div class="character-description">
-      //       <h3>${characterName}</h3>
-      //       <p>
-      //       ${characterDescription}
-      //       </p>
-      //     </div>`;
-
-      // characterDescriptionEl.innerHTML = characterDescriptionHtml;
     });
   });
 };
@@ -181,53 +138,27 @@ const renderGame = (data) => {
       lastSearchedGame = e.target.dataset.id;
       currentGame = data[lastSearchedGame - 1].picture;
       console.log(currentGame);
-      // const html = `
-      // <div>
-      // <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
-      // </div>
-      // `;
-      // selectedGameEl.insertAdjacentHTML("afterbegin", html);
-      selectedGameEl.innerHTML = `<div>
-      <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
+      selectedGameEl.innerHTML = `
+      <div>
+        <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
       </div>`;
     }
-
-    // if (e.target.classList.contains("ffviii")) {
-    //   console.log("Clicked FFVIII");
-    //   currentGame = data[7].picture;
-    //   // return;
-    // }
-
-    // const gameLogo = data[6].picture;
-
-    // const html = `
-    // <div>
-    // <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
-    // </div>
-    // `;
-    // selectedGameEl.insertAdjacentHTML("afterbegin", html);
   });
 };
-
-// function updateDisplay() {
-//   while (mainContentEl.firstChild) {
-//     mainContentEl.removeChild(mainContentEl.firstChild);
-//   }
-//   for (const data of finalGroup) {
-//     getCharacterData(data);
-//   }
-// }
 
 // Fetch character data
 const getCharacterData = async () => {
   try {
     const charRes = await fetch(`https://www.moogleapi.com/api/v1/characters`);
-    if (!charRes.ok) throw new Error("Problem getting character data");
+    if (!charRes.ok)
+      throw new Error(
+        `HTTP error: ${response.status} \u2013 Problem getting character data`
+      );
     const charData = await charRes.json();
     console.log(charData);
-    return renderFFVII(charData);
+    return renderGameData(charData);
   } catch (err) {
-    console.error(err);
+    console.error(`Fetch problem: ${err.message}`);
   }
 };
 
@@ -235,25 +166,17 @@ const getCharacterData = async () => {
 const getGameData = async () => {
   try {
     const gameRes = await fetch(`https://www.moogleapi.com/api/v1/games`);
-    if (!gameRes.ok) throw new Error("Problem getting game data");
+    if (!gameRes.ok)
+      throw new Error(
+        `HTTP error: ${response.status} \u2013 Problem getting game data`
+      );
     const gameData = await gameRes.json();
     console.log(gameData);
     renderGame(gameData);
   } catch (err) {
-    console.log(err);
+    console.error(`Fetch problem: ${err.message}`);
   }
 };
 
 getGameData();
-
 getCharacterData();
-
-// ffviiEl.addEventListener("click", getCharacterData, { once: true });
-// navList.addEventListener("click", (e) => {
-//   let li = e.target.closest("li");
-//   console.log(li);
-
-//   if (e.target.classList.contains("ffvii")) {
-//     console.log("Clicked FFVII");
-//   }
-// });
