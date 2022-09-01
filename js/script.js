@@ -5,6 +5,12 @@ const mainContentEl = document.querySelector(".main-content-grid");
 const quickViewEl = document.querySelector(".quick-view-grid");
 const selectedGameEl = document.querySelector(".section--selected-game");
 const navList = document.querySelector(".main-nav-list");
+
+const mogPlaceholder = `../img/M3on3-moogle-from-fandom (2).webp`;
+
+// const placeholder = "../img/Mini_Choco_Ylw.webp";
+// console.log(placeholder);
+// placeholder.className = "chocobo-icon";
 // Render one character
 // const renderOneCharacter = (data) => {
 //   const characterPicture = data[193].pictures[0].url;
@@ -70,18 +76,11 @@ const renderGameData = (data) => {
     filteredGame.forEach((data, i) => {
       // Save specific data to variables
       console.log(data);
-      const placeholder = "https://via.placeholder.com/150";
 
-      // let charImgs = data.pictures[0].url;
       let charImgs =
-        data.pictures[0] === undefined ? placeholder : data.pictures[0].url;
+        // Pinpointed where data returned undefined and replaced image with placeholder in that condition - undefined = data type so string 'undefined' doesn't work
+        data.pictures[0] === undefined ? mogPlaceholder : data.pictures[0].url;
 
-      let placeholderImg = data.pictures[0];
-      // if (!charImgs) data.pictures[0].url = placeholder;
-      // if (data.pictures === "undefined") {
-      //   console.log("No picture");
-      // }
-      // if (!charImgs) return;
       const characterName = data.name;
       const characterDescription = data.description;
       const characterOrigin = data.origin;
