@@ -69,13 +69,17 @@ const renderGameData = (data) => {
       const characterHeight = data.height;
       const characterAge = data.age;
       const characterWeight = data.weight;
-
+      const characterId = data.id;
+      // <a href=""><img class="character-img" src="${charImgs}" /></a>
       console.log(i);
 
       // '+=' is necessary instead of '=' below otherwise JS will execute all computations before it redraws the page, which means that only the last value of innerHTML would be rendered
       quickSelectHtml += `
     <div class="character-circle-container">
-      <img class="character-circle" src="${charImgs}"/>
+
+    
+
+     <a class="character-link" href="${characterId}"><img class="character-circle" src="${charImgs}"/></a>
     </div>
     `;
       quickViewEl.innerHTML = quickSelectHtml;
@@ -87,7 +91,9 @@ const renderGameData = (data) => {
     <div class="character-details-container">
       <article class="character-profile--container">
         <div class="character-profile">
-          <img class="character-img" src="${charImgs}" />
+
+        
+          <img id=${characterId} class="character-img" src="${charImgs}" />
             <div class="character-data-grid">
               <p>Origin: ${characterOrigin}</p>
               <p>Race: ${characterRace}</p>
@@ -180,6 +186,33 @@ const getGameData = async () => {
 
 getGameData();
 getCharacterData();
+
+// Quick view scroll functionality
+
+quickViewEl.addEventListener("click", function (e) {
+  e.preventDefault();
+  // console.log(e.target.parentNode);
+
+  // const id = e.target.parentNode.getAttribute("href");
+  // console.log(id);
+
+  if (!e.target === null) return;
+  else {
+    const id = null ?? e.target.parentNode.getAttribute("href");
+    console.log(id);
+    document.getElementById(id).scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+
+  // if (e.target.parentNode.classList.contains("character-link")) {
+  //   const id = e.target.getAttribute("href");
+  //   console.log(id);
+  //   document.querySelector(id).scrollIntoView({
+  //     behavior: "smooth",
+  //   });
+  // }
+});
 
 // Scroll to top button functionality
 const displayScrollBtnPx = 700;

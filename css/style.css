@@ -109,13 +109,18 @@ body {
   margin-top: 4.8rem;
 }
 
-.character-circle {
+.character-circle,
+.character-link {
   /* background-color: green; */
   width: 12rem;
   height: 12rem;
   border-radius: 50%;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
+}
+
+.character-link {
+  z-index: 9999;
 }
 
 .test-circle {
