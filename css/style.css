@@ -172,9 +172,27 @@ body {
   position: fixed;
   right: 2rem;
   bottom: 2rem;
+  border-radius: 100%;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  background-color: #2c81b9ce;
+  opacity: 100%;
+  transition: all 0.5s;
+}
+
+.back-to-top-btn:hover {
+  opacity: 60%;
+}
+
+.back-to-top-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #000;
 }
 
 .hidden {
-  display: none;
-  visibility: hidden;
+  /* display: none; */
+  /* visibility: hidden; */
+  opacity: 0%;
 }
