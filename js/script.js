@@ -42,6 +42,15 @@ const navList = document.querySelector(".main-nav-list");
 // };
 
 const renderGameData = (data) => {
+  const ffIII = data.filter((game) => game.origin === "Final Fantasy III");
+  const missing = data.filter((game) => game.pictures);
+
+  console.log(missing);
+  console.log(ffIII[13].pictures[0]);
+  if (ffIII[13].pictures.typeof === "object") {
+    console.log("true");
+    return true;
+  }
   navList.addEventListener("click", (e) => {
     let li = e.target.closest("li");
     console.log(li.textContent);
@@ -60,7 +69,19 @@ const renderGameData = (data) => {
 
     filteredGame.forEach((data, i) => {
       // Save specific data to variables
-      const charImgs = data.pictures[0].url;
+      console.log(data);
+      const placeholder = "https://via.placeholder.com/150";
+
+      // let charImgs = data.pictures[0].url;
+      let charImgs =
+        data.pictures[0] === undefined ? placeholder : data.pictures[0].url;
+
+      let placeholderImg = data.pictures[0];
+      // if (!charImgs) data.pictures[0].url = placeholder;
+      // if (data.pictures === "undefined") {
+      //   console.log("No picture");
+      // }
+      // if (!charImgs) return;
       const characterName = data.name;
       const characterDescription = data.description;
       const characterOrigin = data.origin;
