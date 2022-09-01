@@ -196,11 +196,12 @@ quickViewEl.addEventListener("click", function (e) {
   // const id = e.target.parentNode.getAttribute("href");
   // console.log(id);
 
-  if (!e.target === null) return;
+  if (e.target === null) return;
   else {
-    const id = null ?? e.target.parentNode.getAttribute("href");
-    console.log(id);
-    document.getElementById(id).scrollIntoView({
+    const id = e.target.parentNode.getAttribute("href");
+    // console.log(id);
+    // Optional chaining used to prevent error when quickViewEl is clicked instead of a href
+    document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
     });
   }

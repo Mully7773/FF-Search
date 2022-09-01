@@ -119,10 +119,6 @@ body {
   cursor: pointer;
 }
 
-.character-link {
-  z-index: 9999;
-}
-
 .test-circle {
   background-color: green;
   width: 12rem;
