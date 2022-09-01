@@ -180,3 +180,28 @@ const getGameData = async () => {
 
 getGameData();
 getCharacterData();
+
+// Scroll to top button functionality
+const displayScrollBtnPx = 700;
+const scrollBtn = document.querySelector(".back-to-top-btn");
+
+const scrollContainer = () => {
+  // returns the entire document element - this way we know how far from the top of the document we've scrolled
+  return document.documentElement || document.body;
+};
+
+document.addEventListener("scroll", () => {
+  if (scrollContainer().scrollTop > displayScrollBtnPx) {
+    scrollBtn.classList.remove("hidden");
+  } else {
+    scrollBtn.classList.add("hidden");
+  }
+});
+
+const scrollToTop = () => {
+  document.body.scrollIntoView({
+    behavior: "smooth",
+  });
+};
+
+scrollBtn.addEventListener("click", scrollToTop);
