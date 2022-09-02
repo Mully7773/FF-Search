@@ -89,6 +89,7 @@ const renderGameData = (data) => {
       const characterDescription =
         data.description === null ? descPlaceholder : data.description;
       const characterOrigin = data.origin;
+      const characterGender = data.gender;
       const characterRace = data.race;
       const characterJob = data.job;
       const characterHeight = data.height;
@@ -120,7 +121,7 @@ const renderGameData = (data) => {
         
           <img id=${characterId} class="character-img" src="${charImgs}" />
             <div class="character-data-grid">
-              <p>Origin: ${characterOrigin}</p>
+              <p>Gender: ${characterGender}</p>
               <p>Race: ${characterRace}</p>
               <p>Job: ${characterJob}</p>
               <p>Height: ${characterHeight}</p>
