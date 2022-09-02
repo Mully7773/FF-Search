@@ -48,15 +48,18 @@ const mogPlaceholder = `../img/M3on3-moogle-from-fandom (2).webp`;
 // };
 
 const renderGameData = (data) => {
-  const ffIII = data.filter((game) => game.origin === "Final Fantasy III");
-  const missing = data.filter((game) => game.pictures);
+  console.log(data);
+  const ffI = data.filter((game) => game.origin === "Final Fantasy");
+  console.log(ffI);
 
-  console.log(missing);
-  console.log(ffIII[13].pictures[0]);
-  if (ffIII[13].pictures.typeof === "object") {
-    console.log("true");
-    return true;
-  }
+  // const missing = data.filter((game) => game.pictures);
+
+  // console.log(missing);
+  // console.log(ffIII[13].pictures[0]);
+  // if (ffIII[13].pictures.typeof === "object") {
+  //   console.log("true");
+  //   return true;
+  // }
   navList.addEventListener("click", (e) => {
     let li = e.target.closest("li");
     console.log(li.textContent);
