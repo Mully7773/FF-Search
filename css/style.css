@@ -67,16 +67,47 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .main-nav-link:link,
 .main-nav-link:visited {
+  position: relative;
   display: inline-block;
   text-decoration: none;
   color: #333;
   font-weight: 500;
   font-size: 1.8rem;
+  transition: all 1s;
+}
+
+.main-nav-link:link::before,
+.main-nav-link:visited::before {
+  content: "";
+  position: absolute;
+  transition: all 1s;
+  transform: scaleX(0);
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.main-nav-link:hover::before,
+.main-nav-link:active::before {
+  content: "";
+  position: absolute;
+  top: 114%;
+  width: 100%;
+  left: 0;
+  height: 0.4rem;
+  border-radius: 0.2rem;
+  background: linear-gradient(111.3deg, #114783 9.6%, #fff 93.6%);
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .main-nav-link:hover,
