@@ -7,6 +7,7 @@ const selectedGameEl = document.querySelector(".section--selected-game");
 const navList = document.querySelector(".main-nav-list");
 
 const mogPlaceholder = `../img/M3on3-moogle-from-fandom (2).webp`;
+const descPlaceholder = `No description data yet!`;
 
 // const placeholder = "../img/Mini_Choco_Ylw.webp";
 // console.log(placeholder);
@@ -85,7 +86,8 @@ const renderGameData = (data) => {
         data.pictures[0] === undefined ? mogPlaceholder : data.pictures[0].url;
 
       const characterName = data.name;
-      const characterDescription = data.description;
+      const characterDescription =
+        data.description === null ? descPlaceholder : data.description;
       const characterOrigin = data.origin;
       const characterRace = data.race;
       const characterJob = data.job;
