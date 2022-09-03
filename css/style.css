@@ -26,7 +26,7 @@ body {
 
   /* max-width: 21.2rem; */
   /* max-height: 100vh; */
-  padding: 2.4rem 0;
+  /* padding: 2.4rem 0; */
   grid-row: 2 / 3;
   border-right: 0.1rem solid #009be0;
   font-family: "Oswald", sans-serif;
@@ -34,6 +34,7 @@ body {
   font-weight: 300;
   letter-spacing: 0.3rem;
   /* line-height: 1.2; */
+  margin-top: 3.2rem;
 }
 
 .header::-webkit-scrollbar {
@@ -55,6 +56,7 @@ body {
 }
 
 .FF-search-logo {
+  position: relative;
   color: #fff;
 
   display: table-cell;
@@ -62,19 +64,35 @@ body {
   transform: rotate(-45deg);
   vertical-align: middle;
   /* width: 10rem; */
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.47rem;
 }
 
 .logo-text {
   /* color: rgba(191, 124, 128, 1); */
   color: #f9ef57;
-  text-shadow: 0.2rem 0.2rem 0.2rem #8d4012;
+  /* text-shadow: 0.2rem 0.2rem 0.2rem #8d4012; */
+  text-shadow: 0.1rem 0.1rem 0.2rem #000;
   font-size: 2.4rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-family: "Noto Serif JP", serif;
   letter-spacing: 0.4rem;
-  z-index: 9999;
   /* width: 18rem; */
+}
+
+.logo-text-EN {
+  /* color: #111; */
+  color: rgba(100, 11, 11, 1);
+  text-shadow: 0.05rem 0.05rem #000;
+  font-size: 1.45rem;
+  letter-spacing: 0.3rem;
+  position: absolute;
+  left: 4.5rem;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+}
+
+.character {
+  font-size: 3.6rem;
 }
 
 .diamond {
@@ -91,7 +109,6 @@ body {
   border: 0.3rem solid #000;
   box-shadow: inset 0 0 0 0.2rem #fff;
   height: 7rem;
-  text-align: center;
   transform: rotate(45deg);
   width: 7rem;
 }
