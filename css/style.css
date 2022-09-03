@@ -79,20 +79,32 @@ body {
   /* width: 18rem; */
 }
 
-.logo-text-EN {
+.logo-text-EN,
+.ff-letters {
   /* color: #111; */
   color: rgba(100, 11, 11, 1);
   text-shadow: 0.05rem 0.05rem #000;
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   letter-spacing: 0.3rem;
   position: absolute;
-  left: 4.5rem;
+  left: 4.3rem;
   font-family: "Cinzel", serif;
   font-weight: 700;
+  top: 4.2rem;
+}
+
+.ff-letters {
+  position: absolute;
+  left: 6.9rem;
+  /* font-size: 1.8rem; */
+  font-size: 1.01rem;
+  text-shadow: none;
+  font-weight: 800;
+  top: 4rem;
 }
 
 .character {
-  font-size: 3.6rem;
+  font-size: 3.8rem;
 }
 
 .diamond {
