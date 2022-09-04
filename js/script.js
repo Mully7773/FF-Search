@@ -66,6 +66,8 @@ const renderSingleCharacters = (data) => {
       <div><img class="intro-circle" src="${lightning}"/></div>
 
     </div>
+    <div class="divider">Game Select</div>
+
     `;
 
     selectedGameEl.innerHTML = pageHeadline;
@@ -92,6 +94,8 @@ const renderGameInit = (data) => {
     // Render plain HTML
 
     const gameCircles = `
+
+
 
 <a href=${ffId1}><div class="game-circle">I</div></a>
 <a href=${ffId2}><div class="game-circle">II</div></a>
