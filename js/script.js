@@ -79,11 +79,11 @@ const renderGameInit = (data) => {
       const gameDesc = game.description;
 
       gameHtml += `
-      <div class="character-details-container">
-      <article class="character-profile--container">
-        <div class="character-profile">
-          <img class="character-img" src="${gameImg}"/>
-            <div class="character-data-grid">
+      <div class="game-details-container">
+      <article class="game-profile--container">
+        <div class="game-profile">
+          <img class="game-img" src="${gameImg}"/>
+            <div class="game-data-flex">
               <p>Platform: ${gamePlatform}</p>
               <p>Release: ${gameRelease}</p>
             </div>
@@ -91,8 +91,8 @@ const renderGameInit = (data) => {
       </article>
     </div>
 
-    <article class="character-description--container">
-      <div class="character-description">
+    <article class="game-description--container">
+      <div class="game-description">
         <h3>${gameTitle}</h3>
         <p>${gameDesc}</p>
       </div>
