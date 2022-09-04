@@ -1,7 +1,7 @@
 "use strict";
 
+const homeLogo = document.querySelector(".diamond");
 const mainContentEl = document.querySelector(".main-content-grid");
-
 const quickViewEl = document.querySelector(".quick-view-grid");
 const selectedGameEl = document.querySelector(".section--selected-game");
 const navList = document.querySelector(".main-nav-list");
@@ -48,11 +48,116 @@ const descPlaceholder = `No description data yet!`;
 //   characterDescriptionContainer.insertAdjacentHTML("afterbegin", descHtml);
 // };
 
-const renderGameData = (data) => {
-  console.log(data);
-  const ffI = data.filter((game) => game.origin === "Final Fantasy");
-  console.log(ffI);
+const renderGameInit = (data) => {
+  homeLogo.addEventListener("click", () => {
+    // Render plain HTML
+    const gameCircles = `
+<div class="game-circle">I</div>
+<div class="game-circle">II</div>
+<div class="game-circle">III</div>
+<div class="game-circle">IV</div>
+<div class="game-circle">V</div>
+<div class="game-circle">VI</div>
+<div class="game-circle">VII</div>
+<div class="game-circle">VIII</div>
+<div class="game-circle">IX</div>
+<div class="game-circle">X</div>
+<div class="game-circle">XII</div>
+<div class="game-circle">XIII</div>
+<div class="game-circle">XV</div>
+`;
 
+    quickViewEl.innerHTML = gameCircles;
+    console.log(data);
+
+    let gameHtml = "";
+    const gameImgs = data.forEach((game) => {
+      const gameImg = game.picture;
+      const gamePlatform = game.platform;
+      const gameRelease = game.releaseDate;
+      const gameTitle = game.title;
+      console.log(gameImg);
+
+      gameHtml += `
+      <div>
+      <img src="${gameImg}"/>
+    
+      </div>
+      `;
+      mainContentEl.innerHTML = gameHtml;
+    });
+  });
+};
+
+// const renderGameInit = (data) => {
+//   homeLogo.addEventListener("click", () => {
+//     console.log(data);
+//     const sampleData = data[0].picture;
+//     let sample = `
+//       <div class="game-circle">I</div>
+//       <div class="game-circle">II</div>
+//       <div class="game-circle">III</div>
+//       <div class="game-circle">IV</div>
+//       <div class="game-circle">V</div>
+//       <div class="game-circle">VI</div>
+//       <div class="game-circle">VII</div>
+//       <div class="game-circle">VIII</div>
+//       <div class="game-circle">IX</div>
+//       <div class="game-circle">X</div>
+//       <div class="game-circle">XII</div>
+//       <div class="game-circle">XIII</div>
+//       <div class="game-circle">XV</div>`;
+
+//     quickViewEl.innerHTML = sample;
+
+//   let sampleTwo = `<section class="main-content-grid">
+//   <div class="character-details-container">
+//   <article class="character-profile--container">
+//     <div class="character-profile">
+
+//       <img class="character-img" src="${sampleData}" />
+
+//     </div>
+//   </article>
+// </div>
+// </section>`;
+//   mainContentEl.innerHTML = sample;
+
+// const gameLoop = data.forEach((game) => {
+//   console.log(game);
+//   const gameDesc = game.description;
+//   // console.log(gameDesc);
+//   const gamePic = game.picture;
+//   const gamePlatform = game.platform;
+//   const gameRelease = game.releaseDate;
+//   const gameTitle = game.title;
+//   let characterViewHtml;
+//   characterViewHtml += `
+// <div class="character-details-container">
+//   <article class="character-profile--container">
+//     <div class="character-profile">
+
+//       <img class="character-img" src="${gamePic}" />
+//         <div class="character-data-grid">
+//           <p>Platform: ${gamePlatform}</p>
+//           <p>Release: ${gameRelease}</p>
+//         </div>
+//     </div>
+//   </article>
+// </div>
+
+// <article class="character-description--container">
+//   <div class="character-description">
+//     <h3>${gameTitle}</h3>
+//     <p>${gameDesc}</p>
+//   </div>
+// </article>`;
+//   mainContentEl.innerHTML = characterViewHtml;
+// });
+//   });
+// };
+
+const renderGameData = (data) => {
   // const missing = data.filter((game) => game.pictures);
 
   // console.log(missing);
@@ -204,6 +309,7 @@ const getGameData = async () => {
       );
     const gameData = await gameRes.json();
     console.log(gameData);
+    renderGameInit(gameData);
     renderGame(gameData);
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
