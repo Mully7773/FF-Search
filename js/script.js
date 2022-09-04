@@ -48,6 +48,30 @@ const descPlaceholder = `No description data yet!`;
 //   characterDescriptionContainer.insertAdjacentHTML("afterbegin", descHtml);
 // };
 
+const renderSingleCharacters = (data) => {
+  homeLogo.addEventListener("click", () => {
+    // Render plain HTML
+    const laguna = data[229].pictures[0].url;
+    const cloud = data[193].pictures[0].url;
+    const vivi = data[153].pictures[0].url;
+    const rikku = data[242].pictures[0].url;
+    const lightning = data[259].pictures[0].url;
+
+    const pageHeadline = `<h1 class="headline">Search for games, characters, and more</h1>
+    <div class="fade-in-characters">
+      <div><img class="intro-circle" src="${laguna}"/></div>
+      <div><img class="intro-circle" src="${cloud}"/></div>
+      <div><img class="intro-circle" src="${vivi}"/></div>
+      <div><img class="intro-circle" src="${rikku}"/></div>
+      <div><img class="intro-circle" src="${lightning}"/></div>
+
+    </div>
+    `;
+
+    selectedGameEl.innerHTML = pageHeadline;
+  });
+};
+
 const renderGameInit = (data) => {
   console.log(data);
   const ffId1 = data[0].gameId;
@@ -66,6 +90,7 @@ const renderGameInit = (data) => {
 
   homeLogo.addEventListener("click", () => {
     // Render plain HTML
+
     const gameCircles = `
 
 <a href=${ffId1}><div class="game-circle">I</div></a>
@@ -260,7 +285,8 @@ const getCharacterData = async () => {
       );
     const charData = await charRes.json();
     console.log(charData);
-    return renderGameData(charData);
+    renderGameData(charData);
+    renderSingleCharacters(charData);
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
   }

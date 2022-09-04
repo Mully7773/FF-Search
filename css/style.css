@@ -124,18 +124,14 @@ body {
   height: 7rem;
   transform: rotate(45deg);
   width: 7rem;
+  margin-top: 1rem;
 }
 
-/* .diamond::after {
-  content: "";
-  position: absolute;
-  left: -5rem;
-  top: 5rem;
-  width: 0;
-  height: 0;
-  border: 5rem solid transparent;
-  border-top-color: red;
-} */
+.headline {
+  font-size: 3.6rem;
+  text-align: center;
+  margin: 12rem 0 2rem 0;
+}
 
 /* Main Navigation */
 /* **************** */
@@ -214,6 +210,7 @@ body {
 
 .section--selected-game {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -222,6 +219,25 @@ body {
   margin-top: 8rem;
   width: 35rem;
   height: 16rem;
+}
+
+.fade-in-characters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  margin-right: -5rem;
+  border: 3px solid #fff;
 }
 
 .quick-view-flex-container {
@@ -239,7 +255,7 @@ body {
   gap: 5rem;
   justify-content: center;
   /* align-self: center; */
-  padding: 1.2rem 0;
+  padding: 1.2rem 1.2rem;
   margin-top: 12rem;
 }
 
