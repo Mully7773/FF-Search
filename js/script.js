@@ -76,14 +76,27 @@ const renderGameInit = (data) => {
       const gamePlatform = game.platform;
       const gameRelease = game.releaseDate;
       const gameTitle = game.title;
-      console.log(gameImg);
+      const gameDesc = game.description;
 
       gameHtml += `
-      <div>
-      <img src="${gameImg}"/>
-    
+      <div class="character-details-container">
+      <article class="character-profile--container">
+        <div class="character-profile">
+          <img class="character-img" src="${gameImg}"/>
+            <div class="character-data-grid">
+              <p>Platform: ${gamePlatform}</p>
+              <p>Release: ${gameRelease}</p>
+            </div>
+        </div>
+      </article>
+    </div>
+
+    <article class="character-description--container">
+      <div class="character-description">
+        <h3>${gameTitle}</h3>
+        <p>${gameDesc}</p>
       </div>
-      `;
+    </article>`;
       mainContentEl.innerHTML = gameHtml;
     });
   });
