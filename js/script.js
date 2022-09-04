@@ -49,23 +49,44 @@ const descPlaceholder = `No description data yet!`;
 // };
 
 const renderGameInit = (data) => {
+  console.log(data);
+  const ffId1 = data[0].gameId;
+  const ffId2 = data[1].gameId;
+  const ffId3 = data[2].gameId;
+  const ffId4 = data[3].gameId;
+  const ffId5 = data[4].gameId;
+  const ffId6 = data[5].gameId;
+  const ffId7 = data[6].gameId;
+  const ffId8 = data[7].gameId;
+  const ffId9 = data[8].gameId;
+  const ffId10 = data[9].gameId;
+  const ffId12 = data[11].gameId;
+  const ffId13 = data[12].gameId;
+  const ffId15 = data[14].gameId;
+
   homeLogo.addEventListener("click", () => {
     // Render plain HTML
     const gameCircles = `
-<div class="game-circle">I</div>
-<div class="game-circle">II</div>
-<div class="game-circle">III</div>
-<div class="game-circle">IV</div>
-<div class="game-circle">V</div>
-<div class="game-circle">VI</div>
-<div class="game-circle">VII</div>
-<div class="game-circle">VIII</div>
-<div class="game-circle">IX</div>
-<div class="game-circle">X</div>
-<div class="game-circle">XII</div>
-<div class="game-circle">XIII</div>
-<div class="game-circle">XV</div>
+
+<a href=${ffId1}><div class="game-circle">I</div></a>
+<a href=${ffId2}><div class="game-circle">II</div></a>
+<a href=${ffId3}><div class="game-circle">III</div></a>
+<a href=${ffId4}><div class="game-circle">IV</div></a>
+<a href=${ffId5}><div class="game-circle">V</div></a>
+<a href=${ffId6}><div class="game-circle">VI</div></a>
+<a href=${ffId7}><div class="game-circle">VII</div></a>
+<a href=${ffId8}><div class="game-circle">VIII</div></a>
+<a href=${ffId9}><div class="game-circle">IX</div></a>
+<a href=${ffId10}><div class="game-circle">X</div></a>
+<a href=${ffId12}><div class="game-circle">XII</div></a>
+<a href=${ffId13}><div class="game-circle">XIII</div></a>
+<a href=${ffId15}><div class="game-circle">XV</div></a>
 `;
+
+    // <div class="character-circle-container">
+
+    // {/* <a class="character-link" href="${characterId}"><img class="character-circle" src="${charImgs}"/></a>
+    // </div> */}
 
     quickViewEl.innerHTML = gameCircles;
     console.log(data);
@@ -77,12 +98,13 @@ const renderGameInit = (data) => {
       const gameRelease = game.releaseDate;
       const gameTitle = game.title;
       const gameDesc = game.description;
+      const gameId = game.gameId;
 
       gameHtml += `
       <div class="game-details-container">
       <article class="game-profile--container">
         <div class="game-profile">
-          <img class="game-img" src="${gameImg}"/>
+          <img id="${gameId}"class="game-img" src="${gameImg}"/>
             <div class="game-data-flex">
               <p>Platform: ${gamePlatform}</p>
               <p>Release: ${gameRelease}</p>
@@ -101,74 +123,6 @@ const renderGameInit = (data) => {
     });
   });
 };
-
-// const renderGameInit = (data) => {
-//   homeLogo.addEventListener("click", () => {
-//     console.log(data);
-//     const sampleData = data[0].picture;
-//     let sample = `
-//       <div class="game-circle">I</div>
-//       <div class="game-circle">II</div>
-//       <div class="game-circle">III</div>
-//       <div class="game-circle">IV</div>
-//       <div class="game-circle">V</div>
-//       <div class="game-circle">VI</div>
-//       <div class="game-circle">VII</div>
-//       <div class="game-circle">VIII</div>
-//       <div class="game-circle">IX</div>
-//       <div class="game-circle">X</div>
-//       <div class="game-circle">XII</div>
-//       <div class="game-circle">XIII</div>
-//       <div class="game-circle">XV</div>`;
-
-//     quickViewEl.innerHTML = sample;
-
-//   let sampleTwo = `<section class="main-content-grid">
-//   <div class="character-details-container">
-//   <article class="character-profile--container">
-//     <div class="character-profile">
-
-//       <img class="character-img" src="${sampleData}" />
-
-//     </div>
-//   </article>
-// </div>
-// </section>`;
-//   mainContentEl.innerHTML = sample;
-
-// const gameLoop = data.forEach((game) => {
-//   console.log(game);
-//   const gameDesc = game.description;
-//   // console.log(gameDesc);
-//   const gamePic = game.picture;
-//   const gamePlatform = game.platform;
-//   const gameRelease = game.releaseDate;
-//   const gameTitle = game.title;
-//   let characterViewHtml;
-//   characterViewHtml += `
-// <div class="character-details-container">
-//   <article class="character-profile--container">
-//     <div class="character-profile">
-
-//       <img class="character-img" src="${gamePic}" />
-//         <div class="character-data-grid">
-//           <p>Platform: ${gamePlatform}</p>
-//           <p>Release: ${gameRelease}</p>
-//         </div>
-//     </div>
-//   </article>
-// </div>
-
-// <article class="character-description--container">
-//   <div class="character-description">
-//     <h3>${gameTitle}</h3>
-//     <p>${gameDesc}</p>
-//   </div>
-// </article>`;
-//   mainContentEl.innerHTML = characterViewHtml;
-// });
-//   });
-// };
 
 const renderGameData = (data) => {
   // const missing = data.filter((game) => game.pictures);
