@@ -283,6 +283,7 @@ const renderGame = (data) => {
 
       `;
     }
+    scrollToTop();
   });
 };
 
