@@ -118,8 +118,15 @@ const renderGameInit = (data) => {
   quickViewEl.innerHTML = gameCircles;
   console.log(data);
 
+  // Omitting FFX-2, FFXIII-2, and FFBE
+  const ffbe = data.splice(15, 1);
+  const ffx2 = data.splice(10, 1);
+  const ffxiii2 = data.splice(12, 1);
+  console.log(data);
+
   let gameHtml = "";
   const gameImgs = data.forEach((game) => {
+    console.log(game);
     const gameImg = game.picture;
     const gamePlatform = game.platform;
     const gameRelease = game.releaseDate;
@@ -128,7 +135,7 @@ const renderGameInit = (data) => {
     const gameId = game.gameId;
 
     gameHtml += `
-      <div class="game-details-container">
+    <div class="game-details-container">
       <article class="game-profile--container">
         <div class="game-profile">
           <img id="${gameId}"class="game-img" src="${gameImg}"/>
