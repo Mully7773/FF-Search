@@ -95,19 +95,19 @@ const renderGameInit = (data) => {
 
 
 
-<a href=${ffId1}><div class="game-circle">I</div></a>
-<a href=${ffId2}><div class="game-circle">II</div></a>
-<a href=${ffId3}><div class="game-circle">III</div></a>
-<a href=${ffId4}><div class="game-circle">IV</div></a>
-<a href=${ffId5}><div class="game-circle">V</div></a>
-<a href=${ffId6}><div class="game-circle">VI</div></a>
-<a href=${ffId7}><div class="game-circle">VII</div></a>
-<a href=${ffId8}><div class="game-circle">VIII</div></a>
-<a href=${ffId9}><div class="game-circle">IX</div></a>
-<a href=${ffId10}><div class="game-circle">X</div></a>
-<a href=${ffId12}><div class="game-circle">XII</div></a>
-<a href=${ffId13}><div class="game-circle">XIII</div></a>
-<a href=${ffId15}><div class="game-circle">XV</div></a>
+<a class="number-select ffI-circle" href=${ffId1}><div class="game-circle">I</div></a>
+<a class="number-select ffII-circle" href=${ffId2}><div class="game-circle">II</div></a>
+<a class="number-select ffIII-circle" href=${ffId3}><div class="game-circle">III</div></a>
+<a class="number-select ffIV-circle" href=${ffId4}><div class="game-circle">IV</div></a>
+<a class="number-select ffV-circle" href=${ffId5}><div class="game-circle">V</div></a>
+<a class="number-select ffVI-circle" href=${ffId6}><div class="game-circle">VI</div></a>
+<a class="number-select ffVII-circle" href=${ffId7}><div class="game-circle">VII</div></a>
+<a class="number-select ffVIII-circle" href=${ffId8}><div class="game-circle">VIII</div></a>
+<a class="number-select ffIX-circle" href=${ffId9}><div class="game-circle">IX</div></a>
+<a class="number-select ffX-circle" href=${ffId10}><div class="game-circle">X</div></a>
+<a class="number-select ffXII-circle" href=${ffId12}><div class="game-circle">XII</div></a>
+<a class="number-select ffXIII-circle" href=${ffId13}><div class="game-circle">XIII</div></a>
+<a class="number-select ffXV-circle" href=${ffId15}><div class="game-circle">XV</div></a>
 `;
 
   // <div class="character-circle-container">

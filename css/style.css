@@ -329,7 +329,6 @@ body {
 
 .character-circle,
 .character-link {
-  /* background-color: green; */
   width: 12rem;
   height: 12rem;
   border-radius: 50%;
@@ -341,12 +340,57 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: green; */
   width: 12rem;
   height: 12rem;
   border-radius: 50%;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
+}
+
+.number-select {
+  text-decoration: none;
+  font-size: 4.4rem;
+  font-family: "Merriweather", serif;
+}
+
+.ffI-circle {
+  color: #3e73a9;
+}
+.ffII-circle {
+  color: #dda8d2;
+}
+.ffIII-circle {
+  color: #00aac1;
+}
+.ffIV-circle {
+  color: #542790;
+}
+.ffV-circle {
+  color: #a454a8;
+}
+.ffVI-circle {
+  color: #dd0b1a;
+}
+.ffVII-circle {
+  color: #0d6d56;
+}
+.ffVIII-circle {
+  color: #710c0a;
+}
+.ffIX-circle {
+  color: #ed9b0c;
+}
+.ffX-circle {
+  color: #435ca8;
+}
+.ffXII-circle {
+  color: #867fa8;
+}
+.ffXIII-circle {
+  color: #076c8a;
+}
+.ffXV-circle {
+  color: #13100f;
 }
 
 .game-img {
@@ -364,11 +408,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-/* .character-details-container {
-  justify-self: center;
-  align-items: center;
-} */
 
 .character-profile--container,
 .game-profile--container {
