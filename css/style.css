@@ -240,10 +240,10 @@ body {
   width: 17rem;
   height: 17rem;
   border-radius: 50%;
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
   cursor: pointer;
   margin-right: -5rem;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   opacity: 0;
   animation-name: fadeIn;
   animation-duration: 2s;

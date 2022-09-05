@@ -51,6 +51,7 @@ const descPlaceholder = `No description data yet!`;
 const renderSingleCharacters = (data) => {
   homeLogo.addEventListener("click", () => {
     // Render plain HTML
+    // console.log(data);
     const laguna = data[229].pictures[0].url;
     const cloud = data[193].pictures[0].url;
     const vivi = data[153].pictures[0].url;
