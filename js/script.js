@@ -144,7 +144,7 @@ const renderGameInit = (data) => {
 
     <article class="game-description--container">
       <div class="game-description">
-        <h3>${gameTitle}</h3>
+        <h3 class="game-name">${gameTitle}</h3>
         <p>${gameDesc}</p>
       </div>
     </article>`;
@@ -235,7 +235,7 @@ const renderGameData = (data) => {
   
     <article class="character-description--container">
       <div class="character-description">
-        <h3>${characterName}</h3>
+        <h3 class="character-name">${characterName}</h3>
         <p>${characterDescription}</p>
       </div>
     </article>`;

@@ -205,7 +205,6 @@ body {
   /* grid-template-rows: 1fr 1fr; */
   /* gap: 2rem; */
   justify-content: center;
-  /* align-items: center; */
   margin-top: 4.8rem;
   font-family: "Oswald", sans-serif;
 }
@@ -221,8 +220,10 @@ body {
 
 .selected-game-logo {
   margin-top: 8rem;
-  width: 35rem;
-  height: 16rem;
+  /* width: 35rem;
+  height: 16rem; */
+  width: 46rem;
+  height: 22rem;
 }
 
 .fade-in-characters {
@@ -236,8 +237,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 14rem;
-  height: 14rem;
+  width: 17rem;
+  height: 17rem;
   border-radius: 50%;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
@@ -322,7 +323,7 @@ body {
   gap: 5rem;
   justify-content: center;
   /* align-self: center; */
-  padding: 1.2rem 1.2rem;
+  padding: 8rem 1.2rem;
   margin-top: 16rem;
 }
 
@@ -364,11 +365,20 @@ body {
   align-items: center;
 }
 
-.character-profile--container,
-.game-profile--container {
-  padding: 2.4rem 0 2.4rem 2.4rem;
+/* .character-details-container {
   justify-self: center;
   align-items: center;
+} */
+
+.character-profile--container,
+.game-profile--container {
+  padding: 2.4rem 0 2.4rem 6.4rem;
+  justify-self: center;
+  align-items: center;
+}
+
+.game-profile--container {
+  padding: 2.4rem 0 2.4rem 8rem;
 }
 
 .character-img {
@@ -395,15 +405,25 @@ body {
 .character-description--container,
 .game-description--container {
   /* grid-column: 2/3; */
-  padding: 2.4rem 2.4rem 2.4rem 0;
+  padding: 2.4rem 6.4rem 2.4rem 0;
   text-align: left;
   line-height: 2.4;
+}
+
+.game-description--container {
+  padding: 2.4rem 8rem 2.4rem 0;
 }
 
 .character-description,
 .game-description {
   /* padding: 1.6rem 2.4rem; */
   font-size: 2.4rem;
+}
+
+.game-name,
+.character-name {
+  font-size: 3.6rem;
+  letter-spacing: 0.1rem;
 }
 
 .back-to-top-btn {
