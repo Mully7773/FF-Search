@@ -49,16 +49,15 @@ const descPlaceholder = `No description data yet!`;
 // };
 
 const renderSingleCharacters = (data) => {
-  homeLogo.addEventListener("click", () => {
-    // Render plain HTML
-    // console.log(data);
-    const laguna = data[229].pictures[0].url;
-    const cloud = data[193].pictures[0].url;
-    const vivi = data[153].pictures[0].url;
-    const rikku = data[242].pictures[0].url;
-    const lightning = data[259].pictures[0].url;
+  // Render plain HTML
+  // console.log(data);
+  const laguna = data[229].pictures[0].url;
+  const cloud = data[193].pictures[0].url;
+  const vivi = data[153].pictures[0].url;
+  const rikku = data[242].pictures[0].url;
+  const lightning = data[259].pictures[0].url;
 
-    const pageHeadline = `
+  const pageHeadline = `
     <div class="fade-in-characters">
       <div><img class="intro-circle laguna" src="${laguna}"/></div>
       <div><img class="intro-circle cloud" src="${cloud}"/></div>
@@ -71,8 +70,7 @@ const renderSingleCharacters = (data) => {
 
     `;
 
-    selectedGameEl.innerHTML = pageHeadline;
-  });
+  selectedGameEl.innerHTML = pageHeadline;
 };
 
 const renderGameInit = (data) => {
@@ -91,10 +89,9 @@ const renderGameInit = (data) => {
   const ffId13 = data[12].gameId;
   const ffId15 = data[14].gameId;
 
-  homeLogo.addEventListener("click", () => {
-    // Render plain HTML
+  // Render plain HTML
 
-    const gameCircles = `
+  const gameCircles = `
 
 
 
@@ -113,24 +110,24 @@ const renderGameInit = (data) => {
 <a href=${ffId15}><div class="game-circle">XV</div></a>
 `;
 
-    // <div class="character-circle-container">
+  // <div class="character-circle-container">
 
-    // {/* <a class="character-link" href="${characterId}"><img class="character-circle" src="${charImgs}"/></a>
-    // </div> */}
+  // {/* <a class="character-link" href="${characterId}"><img class="character-circle" src="${charImgs}"/></a>
+  // </div> */}
 
-    quickViewEl.innerHTML = gameCircles;
-    console.log(data);
+  quickViewEl.innerHTML = gameCircles;
+  console.log(data);
 
-    let gameHtml = "";
-    const gameImgs = data.forEach((game) => {
-      const gameImg = game.picture;
-      const gamePlatform = game.platform;
-      const gameRelease = game.releaseDate;
-      const gameTitle = game.title;
-      const gameDesc = game.description;
-      const gameId = game.gameId;
+  let gameHtml = "";
+  const gameImgs = data.forEach((game) => {
+    const gameImg = game.picture;
+    const gamePlatform = game.platform;
+    const gameRelease = game.releaseDate;
+    const gameTitle = game.title;
+    const gameDesc = game.description;
+    const gameId = game.gameId;
 
-      gameHtml += `
+    gameHtml += `
       <div class="game-details-container">
       <article class="game-profile--container">
         <div class="game-profile">
@@ -149,8 +146,7 @@ const renderGameInit = (data) => {
         <p>${gameDesc}</p>
       </div>
     </article>`;
-      mainContentEl.innerHTML = gameHtml;
-    });
+    mainContentEl.innerHTML = gameHtml;
   });
 };
 
@@ -372,3 +368,8 @@ const scrollToTop = () => {
 };
 
 scrollBtn.addEventListener("click", scrollToTop);
+
+//Refresh back to landing page
+homeLogo.addEventListener("click", () => {
+  window.location.reload();
+});
