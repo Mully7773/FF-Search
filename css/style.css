@@ -128,9 +128,10 @@ body {
 }
 
 .headline {
+  font-family: "Cinzel", sans-serif;
   font-size: 3.6rem;
   text-align: center;
-  margin: 20rem 0 2rem 0;
+  /* margin: 20rem 0 0 0; */
 }
 
 /* Main Navigation */
@@ -206,6 +207,7 @@ body {
   justify-content: center;
   /* align-items: center; */
   margin-top: 4.8rem;
+  font-family: "Oswald", sans-serif;
 }
 
 .section--selected-game {
@@ -213,7 +215,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3.2rem;
+  gap: 4.8rem;
+  height: fit-content;
 }
 
 .selected-game-logo {
@@ -226,7 +229,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 2.4rem; */
+  margin-top: 2.4rem;
 }
 
 .intro-circle {
@@ -240,11 +243,42 @@ body {
   cursor: pointer;
   margin-right: -5rem;
   border: 3px solid #fff;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.laguna {
+  animation-delay: 0s;
+}
+.cloud {
+  animation-delay: 0.5s;
+}
+.vivi {
+  animation-delay: 1s;
+}
+.rikku {
+  animation-delay: 1.5s;
+}
+.lightning {
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .divider {
   color: #114783;
   font-size: 2.8rem;
+  font-family: "Oswald", sans-serif;
   /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45); */
   display: flex;
   justify-content: center;
@@ -363,7 +397,7 @@ body {
   /* grid-column: 2/3; */
   padding: 2.4rem 2.4rem 2.4rem 0;
   text-align: left;
-  line-height: 1.6;
+  line-height: 2.4;
 }
 
 .character-description,

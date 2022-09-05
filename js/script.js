@@ -57,15 +57,15 @@ const renderSingleCharacters = (data) => {
     const rikku = data[242].pictures[0].url;
     const lightning = data[259].pictures[0].url;
 
-    const pageHeadline = `<h1 class="headline">Search for games, characters, and more</h1>
+    const pageHeadline = `
     <div class="fade-in-characters">
-      <div><img class="intro-circle" src="${laguna}"/></div>
-      <div><img class="intro-circle" src="${cloud}"/></div>
-      <div><img class="intro-circle" src="${vivi}"/></div>
-      <div><img class="intro-circle" src="${rikku}"/></div>
-      <div><img class="intro-circle" src="${lightning}"/></div>
-
-    </div>
+      <div><img class="intro-circle laguna" src="${laguna}"/></div>
+      <div><img class="intro-circle cloud" src="${cloud}"/></div>
+      <div><img class="intro-circle vivi" src="${vivi}"/></div>
+      <div><img class="intro-circle rikku" src="${rikku}"/></div>
+      <div><img class="intro-circle lightning" src="${lightning}"/></div>
+      </div>
+      <h1 class="headline">Search for games, characters, and more</h1>
     <div class="divider">Game Select</div>
 
     `;
@@ -274,7 +274,10 @@ const renderGame = (data) => {
       selectedGameEl.innerHTML = `
       <div>
         <img class="selected-game-logo" src="${currentGame}" alt="Picture of Final Fantasy logo"/>
-      </div>`;
+      </div>
+      <div class="divider">Character Select</div>
+
+      `;
     }
   });
 };
