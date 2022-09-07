@@ -500,3 +500,45 @@ body {
   /* visibility: hidden; */
   opacity: 0%;
 }
+
+.footer {
+  padding: 3.2rem 0;
+  border-top: 1px solid #2c81b9ce;
+}
+
+.footer-flex-container {
+  display: flex;
+  /* flex-direction: column; */
+  /* grid-template-columns: 1fr 2fr; */
+  justify-content: center;
+  align-items: center;
+  gap: 12rem;
+}
+
+.logo-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 0.3;
+}
+
+.social-links {
+  padding: 3.2rem 0;
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.social-icon {
+  fill: rgba(176, 8, 17, 1);
+  color: rgba(176, 8, 17, 1);
+  height: 2.4rem;
+  width: 2.4rem;
+}

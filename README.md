@@ -9,25 +9,11 @@ A simple search application that utilizes the moogle API to search for Final Fan
 
 ## Screenshots
 
-![Screenshot of ](./img/screenshots/)
-
-<br>
-
-![Screenshot of ](./img/screenshots/)
-
-<br>
-
-![Screenshot of ](./img/)
-
-<br>
-
-![Screenshot of ](./img/screenshots/)
-
 <br>
 
 ## Description
 
-After I discovered there was a web API for the RPG series 'Final Fantasy', I felt making a search application would be a fun opportunity for me to practice fetching data. As a Final Fantasy fan since childhood, I always enjoyed reading about the characters and admiring the character and logo artwork. I used the wonderful [moogleAPI](https://www.moogleapi.com/) to fetch all the data for this application. I had a lot of fun programming this application and felt a great sense of accomplishment and progress solving various kinds of problems associated with displaying the data in an organized and aesthetically pleasing fashion. I learned a great deal throughout this project and I gained more confidence in my abilities as a programmer.
+After I discovered there was a web API for the RPG series 'Final Fantasy', I felt making a search application from scratch would be a fun opportunity for me to practice fetching data. As a Final Fantasy fan since childhood, I always enjoy reading about the characters and admiring the character and logo artwork. I used the wonderful [moogleAPI](https://www.moogleapi.com/) to fetch all the data for this application. I had a lot of fun programming this application and felt a great sense of accomplishment and progress solving various kinds of problems associated with displaying the data in an organized and aesthetically pleasing fashion. I learned a great deal throughout this project and I gained more confidence in my abilities as a programmer.
 
 ## Functionality
 
