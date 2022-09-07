@@ -334,6 +334,11 @@ body {
   border-radius: 50%;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.character-circle:hover {
+  outline: #2c81b9ce solid 0.1rem;
 }
 
 .game-circle {
@@ -345,6 +350,11 @@ body {
   border-radius: 50%;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.game-circle:hover {
+  outline: #2c81b9ce solid 0.1rem;
 }
 
 .number-select {
