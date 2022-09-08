@@ -399,6 +399,6 @@ const scrollToTop = () => {
 scrollBtn.addEventListener("click", scrollToTop);
 
 //Refresh back to landing page
-homeLogo.addEventListener("click", () => {
-  window.location.reload();
-});
+
+const refresh = () => window.location.reload();
+homeLogo.addEventListener("click", refresh);
