@@ -48,6 +48,26 @@ const descPlaceholder = `No description data yet!`;
 //   characterDescriptionContainer.insertAdjacentHTML("afterbegin", descHtml);
 // };
 
+const renderSpinner = (parentEl) => {
+  const markup = `
+  <div class="spinner">
+  <img
+    class="spinner-icon"
+    src="./img/Mini_Choco_Ylw-from-fandom.webp"
+  />
+  <div class="loading">
+    <p class="loading-text">
+      Loading<span class="dot first-dot">.</span
+      ><span class="dot second-dot">.</span
+      ><span class="dot third-dot">.</span>
+    </p>
+  </div>
+</div>
+  `;
+  parentEl.innerHTML = "";
+  parentEl.insertAdjacentHTML("afterbegin", markup);
+};
+
 const renderSingleCharacters = (data) => {
   // Render plain HTML
   // console.log(data);
@@ -290,6 +310,7 @@ const renderGame = (data) => {
 // Fetch character data
 const getCharacterData = async () => {
   try {
+    renderSpinner(quickViewEl);
     const charRes = await fetch(`https://www.moogleapi.com/api/v1/characters`);
     if (!charRes.ok)
       throw new Error(
