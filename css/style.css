@@ -502,8 +502,12 @@ body {
 }
 
 .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 3.2rem 0;
   border-top: 1px solid #2c81b9ce;
+  height: 26.5rem;
 }
 
 .footer-flex-container {
@@ -523,6 +527,7 @@ body {
 }
 
 .footer-text {
+  color: rgb(90, 6, 10);
   font-family: "Oswald", sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
@@ -541,4 +546,9 @@ body {
   color: rgba(176, 8, 17, 1);
   height: 2.4rem;
   width: 2.4rem;
+}
+
+.social-icon:hover {
+  color: rgb(62, 7, 7);
+  fill: rgb(62, 7, 7);
 }
