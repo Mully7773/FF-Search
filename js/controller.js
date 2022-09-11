@@ -1,4 +1,18 @@
-// "use strict";
+import * as model from "./model.js";
+import CharacterView from "./views/characterView.js";
+// import gameView from "./views/gameView.js";
+
+const controlCharacters = async function () {
+  try {
+    await model.loadSingleCharacter();
+
+    CharacterView.renderSingleCharacter(model.characterState.character);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+controlCharacters();
 
 // const homeLogo = document.querySelector(".diamond");
 // const mainContentEl = document.querySelector(".main-content-grid");
