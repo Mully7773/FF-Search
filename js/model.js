@@ -6,6 +6,10 @@ export const gameState = {
   game: {},
 };
 
+export const allGamesState = {
+  allGames: {},
+};
+
 // For rendering single character data
 export const loadSingleCharacter = async function () {
   try {
@@ -45,6 +49,7 @@ export const loadGame = async function () {
     HTTP error: ${response.status} \u2013 Problem getting game data
     `);
     const [...games] = gameData;
+    const [...allGames] = gameData;
 
     gameState.game = {
       ffId1: games[0].gameId,
@@ -62,8 +67,12 @@ export const loadGame = async function () {
       ffId15: games[14].gameId,
     };
 
+    allGamesState.games = {
+      ffGames: allGames,
+    };
+
     console.log(gameData);
-    console.log(gameState.game);
+    console.log(allGamesState.games);
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
   }

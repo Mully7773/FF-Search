@@ -1,15 +1,28 @@
 class GameView {
   #data;
   #quickViewEl = document.querySelector(".quick-view-grid");
+  #mainContentEl = document.querySelector(".main-content-grid");
 
   renderGameSelect(data) {
     this.#data = data;
     const gameSelectMarkup = this.#generateGameSelectMarkup();
-    this.#clear();
+    this.#clearQuickView();
     this.#quickViewEl.insertAdjacentHTML("afterbegin", gameSelectMarkup);
   }
-  #clear() {
+
+  renderGameData(data) {
+    this.#data = data;
+    const gameDataMarkup = this.#generateGameDataMarkup();
+    this.#clearMainView();
+    this.#mainContentEl.insertAdjacentHTML("afterbegin", gameDataMarkup);
+  }
+
+  #clearQuickView() {
     this.#quickViewEl.innerHTML = "";
+  }
+
+  #clearMainView() {
+    this.#mainContentEl.innerHTML = "";
   }
 
   #generateGameSelectMarkup() {
@@ -55,6 +68,10 @@ class GameView {
       this.#data.ffId15
     }><div class="game-circle">XV</div></a>
     `;
+  }
+
+  #generateGameDataMarkup() {
+    console.log(this.#data);
   }
 }
 

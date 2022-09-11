@@ -7,7 +7,11 @@ A simple search application that utilizes the moogle API to search for Final Fan
 
 ## Link
 
+Coming soon
+
 ## Screenshots
+
+Coming soon
 
 <br>
 
