@@ -47,7 +47,19 @@ export const loadGame = async function () {
     const [...games] = gameData;
 
     gameState.game = {
-      ffGames: games,
+      ffId1: games[0].gameId,
+      ffId2: games[1].gameId,
+      ffId3: games[2].gameId,
+      ffId4: games[3].gameId,
+      ffId5: games[4].gameId,
+      ffId6: games[5].gameId,
+      ffId7: games[6].gameId,
+      ffId8: games[7].gameId,
+      ffId9: games[8].gameId,
+      ffId10: games[9].gameId,
+      ffId12: games[11].gameId,
+      ffId13: games[12].gameId,
+      ffId15: games[14].gameId,
     };
 
     console.log(gameData);

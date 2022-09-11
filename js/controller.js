@@ -6,7 +6,7 @@ const controlGames = async function () {
   try {
     await model.loadGame();
 
-    GameView.renderGames(model.gameState.game);
+    GameView.renderGameSelect(model.gameState.game);
   } catch (err) {
     console.log(err);
   }
