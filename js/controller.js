@@ -1,6 +1,16 @@
 import * as model from "./model.js";
 import CharacterView from "./views/characterView.js";
-// import gameView from "./views/gameView.js";
+import GameView from "./views/gameView.js";
+
+const controlGames = async function () {
+  try {
+    await model.loadGame();
+
+    GameView.renderGames(model.gameState.game);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 const controlCharacters = async function () {
   try {
@@ -12,7 +22,22 @@ const controlCharacters = async function () {
   }
 };
 
+controlGames();
 controlCharacters();
+
+// const controlGames = async function () {
+//   try {
+//     // load game
+//     await model.loadGame();
+
+//     //render game
+//     gameView.render(model.gameState.game);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
+// controlGames();
 
 // const homeLogo = document.querySelector(".diamond");
 // const mainContentEl = document.querySelector(".main-content-grid");
