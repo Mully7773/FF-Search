@@ -13,6 +13,10 @@ class CharacterView {
     this.#selectedGameEl.innerHTML = "";
   }
 
+  //   addHandler(handler) {
+
+  //   }
+
   #generateMarkup() {
     console.log(this.#data);
     return `<div class="fade-in-characters">

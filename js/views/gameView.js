@@ -2,6 +2,40 @@ class GameView {
   #data;
   #quickViewEl = document.querySelector(".quick-view-grid");
   #mainContentEl = document.querySelector(".main-content-grid");
+  #navListEl = document.querySelector(".main-nav-list");
+  #selectedGameEl = document.querySelector(".section--selected-game");
+
+  // renderHandler(handler) {
+  //   this.#navListEl.addEventListener("click", handler);
+  // }
+
+  // Start
+
+  // renderGameLogo(data) {
+  //   console.log(data);
+  //   // this.#data = data;
+  //   console.log(data);
+  //   const logo = data.ffGames[0].picture;
+  //   console.log(logo);
+  //   const gameLogoMarkup = this.#generateGameLogoMarkup();
+  //   this.clearSelectedGame();
+  //   this.#selectedGameEl.insertAdjacentHTML("afterbegin", gameLogoMarkup);
+  // }
+
+  // #generateGameLogoMarkup() {
+  //   return ` <div>
+  //          <img class="selected-game-logo" src="${
+  //            this.#data.ffGames[0].picture
+  //          }" alt="Picture of Final Fantasy logo"/>
+  //         </div>
+  //        <div class="divider">Character Select</div>`;
+  // }
+
+  // clearSelectedGame() {
+  //   this.#selectedGameEl.innerHTML = "";
+  // }
+
+  // End
 
   renderGameSelect(data) {
     this.#data = data;
@@ -105,78 +139,4 @@ class GameView {
   }
 }
 
-{
-  /* <div class="game-details-container">
-<article class="game-profile--container">
-  <div class="game-profile">
-    <img id="${game.gameId}"class="game-img" src="${game.picture}"/>
-     <div class="game-data-flex">
-        <p>Platform: ${game.platform}</p>
-        <p>Release: ${game.releaseDate}</p>
-      </div>
-  </div>
-</article>
-</div>
-<article class="game-description--container">
-<div class="game-description">
-  <h3 class="game-name">${game.title}</h3>
-  <p>${game.description}</p>
-</div>
-</article> */
-}
-
 export default new GameView();
-
-// class GameView {
-//   #homeLogo = document.querySelector(".diamond");
-//   #mainContentEl = document.querySelector(".main-content-grid");
-//   #quickViewEl = document.querySelector(".quick-view-grid");
-//   #selectedGameEl = document.querySelector(".section--selected-game");
-//   #navList = document.querySelector(".main-nav-list");
-//   #data;
-
-//   render(data) {
-//     this.#data = data;
-//     const markup = this.#generateMarkup();
-//     this.#clear();
-//     this.#mainContentEl.insertAdjacentHTML("afterbegin", markup);
-//   }
-
-//   #clear() {
-//     this.#mainContentEl.innerHTML = "";
-//   }
-
-//   #generateMarkup() {
-//     console.log(this.#data);
-//     console.log(this.#data.ffGames[0].releaseDate);
-//     // const gameReleaseDate = this.#data.ffGames[0].releaseDate;
-//     let test;
-
-//     return this.#data.ffGames.map(this.#platformRelease);
-//   }
-
-//   #platformRelease(game) {
-//     return `
-//     <div class="game-details-container">
-//         <article class="game-profile--container">
-//           <div class="game-profile">
-//             <img id=""class="game-img" src="${game.picture}"/>
-//     <div class="game-data-flex">
-//                 <p>Platform:${game.platform}</p>
-//                 <p>Release:${game.releaseDate}</p>
-//               </div>
-//               </div>
-//               </article>
-//             </div>
-
-//             <article class="game-description--container">
-//               <div class="game-description">
-//                 <h3 class="game-name"></h3>
-//                 <p></p>
-//               </div>
-//             </article>
-//     `;
-//   }
-// }
-
-// export default new GameView();

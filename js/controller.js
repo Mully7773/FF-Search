@@ -1,13 +1,16 @@
 import * as model from "./model.js";
 import CharacterView from "./views/characterView.js";
+import gameView from "./views/gameView.js";
 import GameView from "./views/gameView.js";
+
+const navList = document.querySelector(".main-nav-list");
 
 const controlGames = async function () {
   try {
     await model.loadGame();
 
-    GameView.renderGameSelect(model.gameState.game);
-    GameView.renderGameData(model.allGamesState.games);
+    GameView.renderGameSelect(model.state.game);
+    GameView.renderGameData(model.state.allGames);
   } catch (err) {
     console.log(err);
   }
@@ -17,7 +20,7 @@ const controlCharacters = async function () {
   try {
     await model.loadSingleCharacter();
 
-    CharacterView.renderSingleCharacter(model.characterState.character);
+    CharacterView.renderSingleCharacter(model.state.character);
   } catch (err) {
     console.log(err);
   }
@@ -25,6 +28,25 @@ const controlCharacters = async function () {
 
 controlGames();
 controlCharacters();
+
+// const controlFFI = async function () {
+//   try {
+//     await model.loadGame();
+
+//     gameView.renderGameLogo(model.allGamesState.allGames);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
+// navList.addEventListener("click", function (e) {
+//   controlFFI();
+//   let lastSearchedGame = e.target.dataset.id;
+//   console.log(lastSearchedGame);
+//   if (e.target.dataset.id === lastSearchedGame) {
+//     lastSearchedGame = e.target.dataset.id;
+//   }
+// });
 
 // const controlGames = async function () {
 //   try {

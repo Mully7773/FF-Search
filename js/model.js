@@ -1,5 +1,16 @@
-export const characterState = {
+export const state = {
   character: {},
+  allCharacters: {},
+  game: {},
+  allGames: {},
+};
+
+export const singleCharacterState = {
+  character: {},
+};
+
+export const allCharacterState = {
+  allCharacters: {},
 };
 
 export const gameState = {
@@ -23,8 +34,9 @@ export const loadSingleCharacter = async function () {
       );
 
     const [...characters] = characterData;
+    const [...allCharacters] = characterData;
 
-    characterState.character = {
+    state.character = {
       lagunaImg: characters[229].pictures[0].url,
       cloudImg: characters[193].pictures[0].url,
       viviImg: characters[153].pictures[0].url,
@@ -32,8 +44,25 @@ export const loadSingleCharacter = async function () {
       lightningImg: characters[259].pictures[0].url,
     };
 
+    // const navList = document.querySelector(".main-nav-list");
+    // navList.addEventListener("click", (e) => {
+    //   let li = e.target.closest("li");
+    //   const liValue = li.textContent.trim();
+    //   console.log(liValue);
+    //   allCharacterState.allCharacters = {
+    //     ffCharacters: allCharacters.filter(
+    //       (character) => character.origin === "Final Fantasy V"
+    //     ),
+    //   };
+    // });
+
+    state.allCharacters = {
+      ffCharacters: allCharacters,
+    };
+
     console.log(characterData);
-    console.log(characterState.character);
+    console.log(state.character);
+    console.log(state.allCharacters);
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
   }
@@ -51,7 +80,7 @@ export const loadGame = async function () {
     const [...games] = gameData;
     const [...allGames] = gameData;
 
-    gameState.game = {
+    state.game = {
       ffId1: games[0].gameId,
       ffId2: games[1].gameId,
       ffId3: games[2].gameId,
@@ -67,33 +96,13 @@ export const loadGame = async function () {
       ffId15: games[14].gameId,
     };
 
-    allGamesState.games = {
+    state.allGames = {
       ffGames: allGames,
     };
 
     console.log(gameData);
-    console.log(allGamesState.games);
+    console.log(state.allGames);
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
   }
 };
-
-// export const loadGame = async function () {
-//   try {
-//     const gameRes = await fetch(`https://www.moogleapi.com/api/v1/games`);
-//     const gameData = await gameRes.json();
-//     if (!gameRes.ok)
-//       throw new Error(
-//         `HTTP error: ${response.status} \u2013 Problem getting game data`
-//       );
-//     const [...games] = gameData;
-
-//     gameState.game = {
-//       ffGames: games,
-//     };
-//     // console.log(gameState.game);
-//     console.log(gameData);
-//   } catch (err) {
-//     console.error(`Fetch problem: ${err.message}`);
-//   }
-// };
