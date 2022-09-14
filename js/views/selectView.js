@@ -1,5 +1,6 @@
 class SelectView {
   #data;
+  moogle;
   #quickViewEl = document.querySelector(".quick-view-grid");
 
   //   Render landing page game select
@@ -68,15 +69,19 @@ class SelectView {
   }
 
   #generateOriginMarkup() {
-    console.log(this.#data);
     return this.#data.map(this.#characterCircles).join("");
   }
 
   #characterCircles(character) {
     console.log(character);
+    const mogPlaceholder = `../../img/M3on3-moogle-from-fandom (2).webp`;
+    let characterImgs =
+      character.pictures[0] === undefined
+        ? mogPlaceholder
+        : character.pictures[0].url;
     return `
     <div class="character-circle-container">
-     <a class="character-link" href="${character.id}"><img class="character-circle" src="${character.pictures[0].url}"/></a>
+     <a class="character-link" href="${character.id}"><img class="character-circle" src="${characterImgs}"/></a>
     </div>
     `;
   }

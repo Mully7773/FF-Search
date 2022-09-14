@@ -95,7 +95,6 @@ export const loadAllCharacters = async function (origin) {
     state.allCharacters.filtered = characterData.filter(
       (character) => character.origin === `${origin}`
     );
-    console.log(state.allCharacters.filtered);
   } catch (err) {
     console.log(err);
   }
