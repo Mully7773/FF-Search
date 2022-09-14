@@ -47,6 +47,46 @@ class MainView {
     </article>
         `;
   }
+
+  renderOriginCharacterMain(data) {
+    this.#data = data;
+    const characterDataMarkup = this.#generateCharacterDataMarkup();
+    this.#clearMainView();
+    this.#mainContentEl.insertAdjacentHTML("afterbegin", characterDataMarkup);
+  }
+
+  #generateCharacterDataMarkup() {
+    console.log(this.#data);
+    return this.#data.map(this.#characterDetails).join("");
+  }
+
+  #characterDetails(character) {
+    return `
+    <div class="character-details-container">
+      <article class="character-profile--container">
+        <div class="character-profile">
+
+          <img id=${character.id} class="character-img" src="${character.pictures[0].url}" />
+            <div class="character-data-grid">
+              <p>Gender: ${character.gender}</p>
+              <p>Race: ${character.race}</p>
+              <p>Job: ${character.job}</p>
+              <p>Height: ${character.height}</p>
+              <p>Age: ${character.age}</p>
+              <p>Weight: ${character.weight}</p>
+            </div>
+        </div>
+      </article>
+    </div>
+
+    <article class="character-description--container">
+      <div class="character-description">
+        <h3 class="character-name">${character.name}</h3>
+        <p>${character.description}</p>
+      </div>
+    </article>
+        `;
+  }
 }
 
 export default new MainView();
