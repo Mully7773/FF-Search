@@ -61,12 +61,17 @@ class MainView {
   }
 
   #characterDetails(character) {
+    const mogPlaceholder = `../../img/M3on3-moogle-from-fandom (2).webp`;
+    let characterImgs =
+      character.pictures[0] === undefined
+        ? mogPlaceholder
+        : character.pictures[0].url;
     return `
     <div class="character-details-container">
       <article class="character-profile--container">
         <div class="character-profile">
 
-          <img id=${character.id} class="character-img" src="${character.pictures[0].url}" />
+          <img id=${character.id} class="character-img" src="${characterImgs}" />
             <div class="character-data-grid">
               <p>Gender: ${character.gender}</p>
               <p>Race: ${character.race}</p>
