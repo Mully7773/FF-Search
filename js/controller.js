@@ -1,13 +1,14 @@
 import * as model from "./model.js";
 import CharacterView from "./views/characterView.js";
 import GameView from "./views/gameView.js";
+import SelectView from "./views/selectView.js";
 import SearchView from "./views/searchView.js";
 
 const controlGames = async function () {
   try {
     await model.loadGame();
 
-    GameView.renderGameSelect(model.state.game);
+    SelectView.renderGameSelect(model.state.game);
     GameView.renderGameData(model.state.allGames);
   } catch (err) {
     console.log(err);
@@ -29,10 +30,10 @@ const controlOriginCharacters = async function () {
     const id = window.location.hash.slice(1);
     const matchingId = id.replaceAll("_", " ");
     console.log(matchingId);
+    if (!id || !matchingId) return;
     // console.log(id);
     await model.loadAllCharacters(matchingId);
     CharacterView.renderOriginCharacters(model.state.allCharacters.filtered);
-    if (!id) return;
   } catch (err) {
     console.log(err);
   }
