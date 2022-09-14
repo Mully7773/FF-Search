@@ -1,16 +1,16 @@
-class CharacterView {
+class TopView {
   #data;
-  #selectedGameEl = document.querySelector(".section--selected-game");
+  #introEl = document.querySelector(".section--selected-game");
 
-  renderSingleCharacter(data) {
-    this.#data = data;
-    const markup = this.#generateMarkup();
-    this.#clear();
-    this.#selectedGameEl.insertAdjacentHTML("afterbegin", markup);
+  #clearIntroEl() {
+    this.#introEl.innerHTML = "";
   }
 
-  #clear() {
-    this.#selectedGameEl.innerHTML = "";
+  renderWelcomeCharacters(data) {
+    this.#data = data;
+    const markup = this.#generateMarkup();
+    this.#clearIntroEl();
+    this.#introEl.insertAdjacentHTML("afterbegin", markup);
   }
 
   #generateMarkup() {
@@ -36,4 +36,4 @@ class CharacterView {
   }
 }
 
-export default new CharacterView();
+export default new TopView();

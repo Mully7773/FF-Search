@@ -1,7 +1,8 @@
 import * as model from "./model.js";
-import CharacterView from "./views/characterView.js";
+import TopView from "./views/topView.js";
 import SelectView from "./views/selectView.js";
 import MainView from "./views/mainView.js";
+
 import SearchView from "./views/searchView.js";
 
 const controlGames = async function () {
@@ -15,11 +16,11 @@ const controlGames = async function () {
   }
 };
 
-const controlSingleCharacters = async function () {
+const controlWelcomeCharacters = async function () {
   try {
-    await model.loadSingleCharacter();
+    await model.loadWelcomeCharacters();
     //Render Character Data on landing page
-    CharacterView.renderSingleCharacter(model.state.character);
+    TopView.renderWelcomeCharacters(model.state.character);
   } catch (err) {
     console.log(err);
   }
@@ -42,7 +43,7 @@ const controlOriginCharacters = async function () {
 window.addEventListener("hashchange", controlOriginCharacters);
 
 controlGames();
-controlSingleCharacters();
+controlWelcomeCharacters();
 // controlSearchResults();
 
 // const controlSearchResults = async function () {

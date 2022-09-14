@@ -12,8 +12,8 @@ export const state = {
   },
 };
 
-// For rendering single character data
-export const loadSingleCharacter = async function () {
+// For rendering characters at top of landing page
+export const loadWelcomeCharacters = async function () {
   try {
     const characterRes = await fetch(
       `https://www.moogleapi.com/api/v1/characters`

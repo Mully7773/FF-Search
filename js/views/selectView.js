@@ -3,16 +3,15 @@ class SelectView {
   moogle;
   #quickViewEl = document.querySelector(".quick-view-grid");
 
+  #clearQuickView() {
+    this.#quickViewEl.innerHTML = "";
+  }
   //   Render landing page game select
   renderGameSelect(data) {
     this.#data = data;
     const gameSelectMarkup = this.#generateGameSelectMarkup();
     this.#clearQuickView();
     this.#quickViewEl.insertAdjacentHTML("afterbegin", gameSelectMarkup);
-  }
-
-  #clearQuickView() {
-    this.#quickViewEl.innerHTML = "";
   }
 
   #generateGameSelectMarkup() {
