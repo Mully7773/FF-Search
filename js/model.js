@@ -1,24 +1,15 @@
 export const state = {
   character: {},
-  allCharacters: {},
+  allCharacters: {
+    filtered: [],
+  },
   game: {},
   allGames: {},
-};
-
-export const singleCharacterState = {
-  character: {},
-};
-
-export const allCharacterState = {
-  allCharacters: {},
-};
-
-export const gameState = {
-  game: {},
-};
-
-export const allGamesState = {
-  allGames: {},
+  search: {},
+  ffV: {
+    logo: {},
+    characters: [],
+  },
 };
 
 // For rendering single character data
@@ -33,8 +24,8 @@ export const loadSingleCharacter = async function () {
         `HTTP error: ${response.status} \u2013 Problem getting character data`
       );
 
+    // Make copy of data
     const [...characters] = characterData;
-    const [...allCharacters] = characterData;
 
     state.character = {
       lagunaImg: characters[229].pictures[0].url,
@@ -44,25 +35,7 @@ export const loadSingleCharacter = async function () {
       lightningImg: characters[259].pictures[0].url,
     };
 
-    // const navList = document.querySelector(".main-nav-list");
-    // navList.addEventListener("click", (e) => {
-    //   let li = e.target.closest("li");
-    //   const liValue = li.textContent.trim();
-    //   console.log(liValue);
-    //   allCharacterState.allCharacters = {
-    //     ffCharacters: allCharacters.filter(
-    //       (character) => character.origin === "Final Fantasy V"
-    //     ),
-    //   };
-    // });
-
-    state.allCharacters = {
-      ffCharacters: allCharacters,
-    };
-
-    console.log(characterData);
     console.log(state.character);
-    console.log(state.allCharacters);
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
   }
@@ -101,8 +74,48 @@ export const loadGame = async function () {
     };
 
     console.log(gameData);
+    // state.allGames does not return all games because of live connection between modules - data was spliced in gameView.js
     console.log(state.allGames);
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
   }
 };
+
+export const loadAllCharacters = async function (origin) {
+  try {
+    const characterRes = await fetch(
+      `https://www.moogleapi.com/api/v1/characters`
+    );
+    const characterData = await characterRes.json();
+    if (!characterRes.ok)
+      throw new Error(
+        `HTTP error: ${response.status} \u2013 Problem getting character data`
+      );
+    console.log(characterData);
+    state.allCharacters.filtered = characterData.filter(
+      (character) => character.origin === `${origin}`
+    );
+    console.log(state.allCharacters.filtered);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// export const loadSearchResults = async function () {
+//   try {
+//     // state.search = query;
+//     const gameRes = await fetch(`https://www.moogleapi.com/api/v1/games`);
+//     const gameData = await gameRes.json();
+//     console.log(gameData);
+//     state.search = gameData.map((game) => {
+//       return {
+//         gameId: game.gameId,
+//         gameLogo: game.picture,
+//         gameTitle: game.title,
+//       };
+//     });
+//     console.log(state.search);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
