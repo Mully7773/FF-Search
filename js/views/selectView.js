@@ -2,6 +2,7 @@ class SelectView {
   #data;
   #quickViewEl = document.querySelector(".quick-view-grid");
 
+  //   Render landing page game select
   renderGameSelect(data) {
     this.#data = data;
     const gameSelectMarkup = this.#generateGameSelectMarkup();
@@ -56,6 +57,28 @@ class SelectView {
           this.#data.ffId15
         }><div class="game-circle">XV</div></a>
         `;
+  }
+
+  //   Render character select
+  renderOriginCharacterSelect(data) {
+    this.#data = data;
+    const markup = this.#generateOriginMarkup();
+    this.#clearQuickView();
+    this.#quickViewEl.insertAdjacentHTML("afterbegin", markup);
+  }
+
+  #generateOriginMarkup() {
+    console.log(this.#data);
+    return this.#data.map(this.#characterCircles).join("");
+  }
+
+  #characterCircles(character) {
+    console.log(character);
+    return `
+    <div class="character-circle-container">
+     <a class="character-link" href="${character.id}"><img class="character-circle" src="${character.pictures[0].url}"/></a>
+    </div>
+    `;
   }
 }
 

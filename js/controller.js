@@ -33,7 +33,7 @@ const controlOriginCharacters = async function () {
     if (!id || !matchingId) return;
     // console.log(id);
     await model.loadAllCharacters(matchingId);
-    CharacterView.renderOriginCharacters(model.state.allCharacters.filtered);
+    SelectView.renderOriginCharacterSelect(model.state.allCharacters.filtered);
   } catch (err) {
     console.log(err);
   }
