@@ -4,7 +4,11 @@ export const state = {
     filtered: [],
   },
   game: {},
-  allGames: {},
+  allGames: {
+    gameLogo: [],
+    gameName: [],
+    filtered: [],
+  },
   search: {},
   ffV: {
     logo: {},
@@ -42,7 +46,7 @@ export const loadWelcomeCharacters = async function () {
 };
 
 // For rendering game data
-export const loadGame = async function () {
+export const loadGame = async function (origin) {
   try {
     const gameRes = await fetch(`https://www.moogleapi.com/api/v1/games`);
     const gameData = await gameRes.json();
@@ -73,9 +77,51 @@ export const loadGame = async function () {
       ffGames: allGames,
     };
 
+    //Put ${origin} where ffI, ffII, etc., is below?
+
+    state.allGames.gameLogo = [
+      { picture: allGames[0].picture, title: "Final Fantasy" },
+      { picture: allGames[1].picture, title: "Final Fantasy II" },
+      { picture: allGames[2].picture, title: "Final Fantasy III" },
+      { picture: allGames[3].picture, title: "Final Fantasy IV" },
+      { picture: allGames[4].picture, title: "Final Fantasy V" },
+      { picture: allGames[5].picture, title: "Final Fantasy VI" },
+      { picture: allGames[6].picture, title: "Final Fantasy VII" },
+      { picture: allGames[7].picture, title: "Final Fantasy VIII" },
+      { picture: allGames[8].picture, title: "Final Fantasy IX" },
+      { picture: allGames[9].picture, title: "Final Fantasy X" },
+      { picture: allGames[11].picture, title: "Final Fantasy XII" },
+      { picture: allGames[12].picture, title: "Final Fantasy XIII" },
+      { picture: allGames[14].picture, title: "Final Fantasy XV" },
+    ];
+
+    state.allGames.gameName = {
+      ffI: `${origin}`,
+      ffII: `${origin}`,
+      ffIII: `${origin}`,
+      ffIV: `${origin}`,
+      ffV: `${origin}`,
+      ffVI: `${origin}`,
+      ffVII: `${origin}`,
+      ffVIII: `${origin}`,
+      ffIX: `${origin}`,
+      ffX: `${origin}`,
+      ffXII: `${origin}`,
+      ffXIII: `${origin}`,
+      ffXV: `${origin}`,
+    };
+
+    // console.log(allGames[0].title);
+
+    console.log(state.allGames.gameLogo);
+
+    console.log(state.allGames);
     console.log(gameData);
     // state.allGames does not return all games because of live connection between modules - data was spliced in gameView.js
     console.log(state.allGames);
+    state.allGames.filtered = state.allGames.gameLogo.filter(
+      (game) => game.title === `${origin}`
+    );
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
   }

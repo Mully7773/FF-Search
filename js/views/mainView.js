@@ -62,6 +62,8 @@ class MainView {
 
   #characterDetails(character) {
     const mogPlaceholder = `../../img/M3on3-moogle-from-fandom (2).webp`;
+
+    const descriptionPlaceholder = `No description data yet!`;
     let characterImgs =
       character.pictures[0] === undefined
         ? mogPlaceholder
@@ -71,7 +73,9 @@ class MainView {
       <article class="character-profile--container">
         <div class="character-profile">
 
-          <img id=${character.id} class="character-img" src="${characterImgs}" />
+          <img id=${
+            character.id
+          } class="character-img" src="${characterImgs}" />
             <div class="character-data-grid">
               <p>Gender: ${character.gender}</p>
               <p>Race: ${character.race}</p>
@@ -87,7 +91,11 @@ class MainView {
     <article class="character-description--container">
       <div class="character-description">
         <h3 class="character-name">${character.name}</h3>
-        <p>${character.description}</p>
+        <p>${
+          character.description === null
+            ? descriptionPlaceholder
+            : character.description
+        }</p>
       </div>
     </article>
         `;

@@ -33,7 +33,9 @@ const controlOriginCharacters = async function () {
     console.log(matchingId);
     if (!id || !matchingId) return;
     // console.log(id);
+    await model.loadGame(matchingId);
     await model.loadAllCharacters(matchingId);
+    TopView.renderLogo(model.state.allGames.filtered);
     SelectView.renderOriginCharacterSelect(model.state.allCharacters.filtered);
     MainView.renderOriginCharacterMain(model.state.allCharacters.filtered);
   } catch (err) {

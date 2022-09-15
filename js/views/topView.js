@@ -1,5 +1,6 @@
 class TopView {
   #data;
+  #logoData;
   #introEl = document.querySelector(".section--selected-game");
 
   #clearIntroEl() {
@@ -33,6 +34,21 @@ class TopView {
           <h1 class="headline">Search for games, characters, and more</h1>
        <div class="divider">Game Select</div>
        `;
+  }
+
+  renderLogo(data) {
+    this.#logoData = data;
+    console.log(this.#logoData[0].picture);
+    const markup = `
+    <div>
+      <img class="selected-game-logo" src="${
+        this.#logoData[0].picture
+      }" alt="Picture of Final Fantasy logo"/>
+    </div>
+    <div class="divider">Character Select</div>
+    `;
+    this.#clearIntroEl();
+    this.#introEl.insertAdjacentHTML("afterbegin", markup);
   }
 }
 
