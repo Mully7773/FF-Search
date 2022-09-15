@@ -1,6 +1,5 @@
 class SelectView {
   #data;
-  moogle;
   #quickViewEl = document.querySelector(".quick-view-grid");
 
   #clearQuickView() {
@@ -80,10 +79,11 @@ class SelectView {
         : character.pictures[0].url;
     return `
     <div class="character-circle-container">
-     <a class="character-link" href="${character.id}"><img class="character-circle" src="${characterImgs}"/></a>
+      <a class="character-link" href="${character.id}">
+        <img class="character-circle" src="${characterImgs}"/>
+      </a>
     </div>
     `;
   }
 }
-
 export default new SelectView();

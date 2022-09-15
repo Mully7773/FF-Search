@@ -6,13 +6,7 @@ export const state = {
   game: {},
   allGames: {
     gameLogo: [],
-    gameName: [],
     filtered: [],
-  },
-  search: {},
-  ffV: {
-    logo: {},
-    characters: [],
   },
 };
 
@@ -39,7 +33,7 @@ export const loadWelcomeCharacters = async function () {
       lightningImg: characters[259].pictures[0].url,
     };
 
-    console.log(state.character);
+    // console.log(state.character);
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
   }
@@ -95,30 +89,13 @@ export const loadGame = async function (origin) {
       { picture: allGames[14].picture, title: "Final Fantasy XV" },
     ];
 
-    state.allGames.gameName = {
-      ffI: `${origin}`,
-      ffII: `${origin}`,
-      ffIII: `${origin}`,
-      ffIV: `${origin}`,
-      ffV: `${origin}`,
-      ffVI: `${origin}`,
-      ffVII: `${origin}`,
-      ffVIII: `${origin}`,
-      ffIX: `${origin}`,
-      ffX: `${origin}`,
-      ffXII: `${origin}`,
-      ffXIII: `${origin}`,
-      ffXV: `${origin}`,
-    };
+    // console.log(state.allGames.gameLogo);
 
-    // console.log(allGames[0].title);
-
-    console.log(state.allGames.gameLogo);
-
-    console.log(state.allGames);
-    console.log(gameData);
+    // console.log(state.allGames);
+    // console.log(gameData);
     // state.allGames does not return all games because of live connection between modules - data was spliced in gameView.js
-    console.log(state.allGames);
+    // console.log(state.allGames);
+    // Filter data for logo render based on game origin
     state.allGames.filtered = state.allGames.gameLogo.filter(
       (game) => game.title === `${origin}`
     );
@@ -145,22 +122,3 @@ export const loadAllCharacters = async function (origin) {
     console.log(err);
   }
 };
-
-// export const loadSearchResults = async function () {
-//   try {
-//     // state.search = query;
-//     const gameRes = await fetch(`https://www.moogleapi.com/api/v1/games`);
-//     const gameData = await gameRes.json();
-//     console.log(gameData);
-//     state.search = gameData.map((game) => {
-//       return {
-//         gameId: game.gameId,
-//         gameLogo: game.picture,
-//         gameTitle: game.title,
-//       };
-//     });
-//     console.log(state.search);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };

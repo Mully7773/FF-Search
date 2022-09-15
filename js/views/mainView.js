@@ -15,9 +15,9 @@ class MainView {
   }
 
   #generateGameDataMarkup() {
-    console.log(this.#data);
+    // console.log(this.#data);
 
-    // Omitting unwanted games - not enough data
+    // Omitting unwanted games - not enough data/not main series
     const ffbe = this.#data.ffGames.splice(15, 1);
     const ffx2 = this.#data.ffGames.splice(10, 1);
     const ffxiii2 = this.#data.ffGames.splice(12, 1);
@@ -48,6 +48,7 @@ class MainView {
         `;
   }
 
+  // Renders character profiles
   renderOriginCharacterMain(data) {
     this.#data = data;
     const characterDataMarkup = this.#generateCharacterDataMarkup();
@@ -61,9 +62,10 @@ class MainView {
   }
 
   #characterDetails(character) {
+    // Placeholders for missing data
     const mogPlaceholder = `../../img/M3on3-moogle-from-fandom (2).webp`;
-
     const descriptionPlaceholder = `No description data yet!`;
+
     let characterImgs =
       character.pictures[0] === undefined
         ? mogPlaceholder
@@ -72,7 +74,6 @@ class MainView {
     <div class="character-details-container">
       <article class="character-profile--container">
         <div class="character-profile">
-
           <img id=${
             character.id
           } class="character-img" src="${characterImgs}" />
@@ -101,5 +102,4 @@ class MainView {
         `;
   }
 }
-
 export default new MainView();
