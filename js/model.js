@@ -1,3 +1,5 @@
+import { GAME_API_URL, CHARACTER_API_URL } from "./config.js";
+
 export const state = {
   character: {},
   allCharacters: {
@@ -13,9 +15,7 @@ export const state = {
 // For rendering characters at top of landing page
 export const loadWelcomeCharacters = async function () {
   try {
-    const characterRes = await fetch(
-      `https://www.moogleapi.com/api/v1/characters`
-    );
+    const characterRes = await fetch(`${CHARACTER_API_URL}`);
     const characterData = await characterRes.json();
     if (!characterRes)
       throw new Error(
@@ -42,7 +42,7 @@ export const loadWelcomeCharacters = async function () {
 // For rendering game data
 export const loadGame = async function (origin) {
   try {
-    const gameRes = await fetch(`https://www.moogleapi.com/api/v1/games`);
+    const gameRes = await fetch(`${GAME_API_URL}`);
     const gameData = await gameRes.json();
     if (!gameRes.ok)
       throw new Error(`
@@ -106,9 +106,7 @@ export const loadGame = async function (origin) {
 
 export const loadAllCharacters = async function (origin) {
   try {
-    const characterRes = await fetch(
-      `https://www.moogleapi.com/api/v1/characters`
-    );
+    const characterRes = await fetch(`${CHARACTER_API_URL}`);
     const characterData = await characterRes.json();
     if (!characterRes.ok)
       throw new Error(
