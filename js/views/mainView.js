@@ -2,6 +2,11 @@ class MainView {
   #data;
   #mainContentEl = document.querySelector(".main-content-grid");
 
+  // Possibly export to a parent 'View'
+  addHandlerRender(handler) {
+    ["hashchange", "load"].forEach((e) => window.addEventListener(e, handler));
+  }
+
   #clearMainView() {
     this.#mainContentEl.innerHTML = "";
   }
@@ -31,7 +36,7 @@ class MainView {
     <div class="game-details-container">
         <article class="game-profile--container">
             <div class="game-profile">
-                <img id="${game.gameId}"class="game-img" src="${game.picture}"/>
+                <img id="#${game.gameId}"class="game-img" src="${game.picture}"/>
                 <div class="game-data-flex">
                     <p>Platform: ${game.platform}</p>
                     <p>Release: ${game.releaseDate}</p>
@@ -74,7 +79,7 @@ class MainView {
     <div class="character-details-container">
       <article class="character-profile--container">
         <div class="character-profile">
-          <img id=${
+          <img id=#${
             character.id
           } class="character-img" src="${characterImgs}" />
             <div class="character-data-grid">

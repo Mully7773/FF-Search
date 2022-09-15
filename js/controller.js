@@ -40,12 +40,19 @@ const controlOrigin = async function () {
   }
 };
 
-window.addEventListener("hashchange", controlOrigin);
+// window.addEventListener("hashchange", controlOrigin);
+// window.addEventListener("load", controlOrigin);
+
+// ["hashchange", "load"].forEach((e, handler) =>
+//   window.addEventListener(controlOrigin)
+// );
 
 controlGames();
 controlWelcomeCharacters();
 
-// const init = function () {
-//   SearchView.addHandlerSearch(controlSearchResults);
-// };
-// init();
+const init = function () {
+  TopView.addHandlerRender(controlOrigin);
+  SelectView.addHandlerRender(controlOrigin);
+  MainView.addHandlerRender(controlOrigin);
+};
+init();
