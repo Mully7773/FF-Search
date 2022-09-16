@@ -71,8 +71,6 @@ export const loadGame = async function (origin) {
       ffGames: allGames,
     };
 
-    //Put ${origin} where ffI, ffII, etc., is below?
-
     state.allGames.gameLogo = [
       { picture: allGames[0].picture, title: "Final Fantasy" },
       { picture: allGames[1].picture, title: "Final Fantasy II" },

@@ -2,9 +2,30 @@ class MainView {
   #data;
   #mainContentEl = document.querySelector(".main-content-grid");
 
+  // scrollBtn = document.querySelector(".back-to-top-btn");
   // Possibly export to a parent 'View'
+
+  // scrollContainer() {
+  //   return document.documentElement || document.body;
+  // }
+
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((e) => window.addEventListener(e, handler));
+    // This would also be exported to parent 'View'
+    const scrollBtn = document.querySelector(".back-to-top-btn");
+    const displayScrollBtnPx = 700;
+    document.addEventListener("scroll", function () {
+      if (document.documentElement.scrollTop > 700) {
+        scrollBtn.classList.remove("hidden");
+      } else {
+        scrollBtn.classList.add("hidden");
+      }
+    });
+    scrollBtn.addEventListener("click", function () {
+      document.body.scrollIntoView({
+        behavior: "smooth",
+      });
+    });
   }
 
   #clearMainView() {
