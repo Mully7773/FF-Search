@@ -40,13 +40,6 @@ const controlOrigin = async function () {
   }
 };
 
-// window.addEventListener("hashchange", controlOrigin);
-// window.addEventListener("load", controlOrigin);
-
-// ["hashchange", "load"].forEach((e, handler) =>
-//   window.addEventListener(controlOrigin)
-// );
-
 controlGames();
 controlWelcomeCharacters();
 

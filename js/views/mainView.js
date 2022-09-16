@@ -5,17 +5,14 @@ class MainView {
   // scrollBtn = document.querySelector(".back-to-top-btn");
   // Possibly export to a parent 'View'
 
-  // scrollContainer() {
-  //   return document.documentElement || document.body;
-  // }
-
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((e) => window.addEventListener(e, handler));
     // This would also be exported to parent 'View'
     const scrollBtn = document.querySelector(".back-to-top-btn");
     const displayScrollBtnPx = 700;
+    const homeLogo = document.querySelector(".diamond");
     document.addEventListener("scroll", function () {
-      if (document.documentElement.scrollTop > 700) {
+      if (document.documentElement.scrollTop > displayScrollBtnPx) {
         scrollBtn.classList.remove("hidden");
       } else {
         scrollBtn.classList.add("hidden");
@@ -26,6 +23,58 @@ class MainView {
         behavior: "smooth",
       });
     });
+
+    window.addEventListener("hashchange", (event) => {
+      console.log(window.location);
+      if (window.location.hash === "") {
+        window.location.reload();
+      }
+      console.log(
+        `location: ${document.location}, state: ${JSON.stringify(event.state)}`
+      );
+    });
+    // Refresh
+    // const refresh = () => window.location.reload();
+    const refresh = () => {
+      window.location.assign("");
+    };
+    // const refresh = () => {
+    //   if (window.location.url("#")) {
+    //     window.location.reload();
+    //   }
+    // };
+
+    // const refresh = function () {
+    //   let perfEntries = performance.getEntriesByType("navigation");
+    //   if (perfEntries[0].type === "back_forward") {
+    //     location.reload(true);
+    //   }
+    // };
+    // refresh();
+
+    // (function () {
+    //   window.onpageshow = function (event) {
+    //     if (event.persisted) {
+    //       document.body.style.display = "none";
+    //       window.location.reload();
+    //     }
+    //   };
+    // })();
+
+    // const refresh2 = (window.onbeforeunload = function () {
+    //   window.location.href = document.referrer;
+    // });
+    // homeLogo.addEventListener("click", refresh);
+    // window.addEventListener("popstate", function () {
+    //   if ((this.window.location = "#home")) {
+    //     window.location.reload();
+    //   }
+    // });
+    // if ((window.location.href = "#home")) {
+    //   window.location.reload();
+    // }
+
+    homeLogo.addEventListener("click", refresh);
   }
 
   #clearMainView() {
