@@ -2,7 +2,6 @@ class MainView {
   #data;
   #mainContentEl = document.querySelector(".main-content-grid");
 
-  // scrollBtn = document.querySelector(".back-to-top-btn");
   // Possibly export to a parent 'View'
 
   addHandlerRender(handler) {
@@ -27,6 +26,9 @@ class MainView {
     // Necessary for using the back button to return to landing page - hash must be set to empty string - may change when deployed
     window.addEventListener("hashchange", (event) => {
       console.log(window.location);
+      document.body.scrollIntoView({
+        behavior: "smooth",
+      });
       if (window.location.hash === "") {
         window.location.reload();
       }
@@ -39,41 +41,6 @@ class MainView {
     const refresh = () => {
       window.location.assign("");
     };
-    // const refresh = () => {
-    //   if (window.location.url("#")) {
-    //     window.location.reload();
-    //   }
-    // };
-
-    // const refresh = function () {
-    //   let perfEntries = performance.getEntriesByType("navigation");
-    //   if (perfEntries[0].type === "back_forward") {
-    //     location.reload(true);
-    //   }
-    // };
-    // refresh();
-
-    // (function () {
-    //   window.onpageshow = function (event) {
-    //     if (event.persisted) {
-    //       document.body.style.display = "none";
-    //       window.location.reload();
-    //     }
-    //   };
-    // })();
-
-    // const refresh2 = (window.onbeforeunload = function () {
-    //   window.location.href = document.referrer;
-    // });
-    // homeLogo.addEventListener("click", refresh);
-    // window.addEventListener("popstate", function () {
-    //   if ((this.window.location = "#home")) {
-    //     window.location.reload();
-    //   }
-    // });
-    // if ((window.location.href = "#home")) {
-    //   window.location.reload();
-    // }
 
     homeLogo.addEventListener("click", refresh);
   }

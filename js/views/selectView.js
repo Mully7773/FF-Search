@@ -30,7 +30,8 @@ class SelectView {
   }
 
   #generateGameSelectMarkup() {
-    console.log(this.#data);
+    // console.log(this.#data);
+    // Note possibility: title attribute instead of data attribute
     return `
         <a class="number-select ffI-circle" data-scroll-id=#${
           this.#data.ffId1

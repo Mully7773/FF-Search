@@ -5,7 +5,7 @@ import MainView from "./views/mainView.js";
 
 const controlWelcomeCharacters = async function () {
   try {
-    await model.loadWelcomeCharacters();
+    await model.loadAllCharacters();
     //Render Character Data on landing page
     TopView.renderWelcomeCharacters(model.state.character);
   } catch (err) {
@@ -40,8 +40,8 @@ const controlOrigin = async function () {
   }
 };
 
-controlGames();
 controlWelcomeCharacters();
+controlGames();
 
 const init = function () {
   TopView.addHandlerRender(controlOrigin);

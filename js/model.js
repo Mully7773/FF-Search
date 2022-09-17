@@ -12,34 +12,7 @@ export const state = {
   },
 };
 
-// For rendering characters at top of landing page
-export const loadWelcomeCharacters = async function () {
-  try {
-    const characterRes = await fetch(`${CHARACTER_API_URL}`);
-    const characterData = await characterRes.json();
-    if (!characterRes)
-      throw new Error(
-        `HTTP error: ${response.status} \u2013 Problem getting character data`
-      );
-
-    // Make copy of data
-    const [...characters] = characterData;
-
-    state.character = {
-      lagunaImg: characters[229].pictures[0].url,
-      cloudImg: characters[193].pictures[0].url,
-      viviImg: characters[153].pictures[0].url,
-      rikkuImg: characters[242].pictures[0].url,
-      lightningImg: characters[259].pictures[0].url,
-    };
-
-    // console.log(state.character);
-  } catch (err) {
-    console.error(`Fetch problem: ${err.message}`);
-  }
-};
-
-// For rendering game data
+// For rendering game data on landing page
 export const loadGame = async function (origin) {
   try {
     const gameRes = await fetch(`${GAME_API_URL}`);
@@ -111,6 +84,18 @@ export const loadAllCharacters = async function (origin) {
         `HTTP error: ${response.status} \u2013 Problem getting character data`
       );
     console.log(characterData);
+
+    // For rendering landing page welcome characters
+    const [...characters] = characterData;
+    state.character = {
+      lagunaImg: characters[229].pictures[0].url,
+      cloudImg: characters[193].pictures[0].url,
+      viviImg: characters[153].pictures[0].url,
+      rikkuImg: characters[242].pictures[0].url,
+      lightningImg: characters[259].pictures[0].url,
+    };
+
+    // For rendering origin characters
     state.allCharacters.filtered = characterData.filter(
       (character) => character.origin === `${origin}`
     );
