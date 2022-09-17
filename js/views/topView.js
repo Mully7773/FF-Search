@@ -50,13 +50,7 @@ class TopView {
 
   renderLogo(data) {
     this.#logoData = data;
-    console.log(this.#logoData);
-    // if (this.#logoData[0].picture === undefined) return;
-    // if (!this.#logoData) return;
-    // if (this.#logoData === []) return;
-    // if (this.#logoData === undefined) return;
-    // console.log(this.#logoData);
-    // console.log(this.#logoData[0].picture);
+    if (!this.#logoData) return;
     const markup = `
     <div>
       <img class="selected-game-logo" src="${

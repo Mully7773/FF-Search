@@ -9,7 +9,7 @@ class SelectView {
     this.#quickViewEl.addEventListener("click", function (e) {
       if (e.target === null) return;
       else {
-        const id = e.target.parentNode.getAttribute("href");
+        const id = e.target.parentNode.getAttribute("data-scroll-id");
         console.log(id);
         document.getElementById(id)?.scrollIntoView({
           behavior: "smooth",
@@ -32,43 +32,43 @@ class SelectView {
   #generateGameSelectMarkup() {
     console.log(this.#data);
     return `
-        <a class="number-select ffI-circle" href=#${
+        <a class="number-select ffI-circle" data-scroll-id=#${
           this.#data.ffId1
         }><div class="game-circle">I</div></a>
-        <a class="number-select ffII-circle" href=#${
+        <a class="number-select ffII-circle" data-scroll-id=#${
           this.#data.ffId2
         }><div class="game-circle">II</div></a>
-        <a class="number-select ffIII-circle" href=#${
+        <a class="number-select ffIII-circle" data-scroll-id=#${
           this.#data.ffId3
         }><div class="game-circle">III</div></a>
-        <a class="number-select ffIV-circle" href=#${
+        <a class="number-select ffIV-circle" data-scroll-id=#${
           this.#data.ffId4
         }><div class="game-circle">IV</div></a>
-        <a class="number-select ffV-circle" href=#${
+        <a class="number-select ffV-circle" data-scroll-id=#${
           this.#data.ffId5
         }><div class="game-circle">V</div></a>
-        <a class="number-select ffVI-circle" href=#${
+        <a class="number-select ffVI-circle" data-scroll-id=#${
           this.#data.ffId6
         }><div class="game-circle">VI</div></a>
-        <a class="number-select ffVII-circle" href=#${
+        <a class="number-select ffVII-circle" data-scroll-id=#${
           this.#data.ffId7
         }><div class="game-circle">VII</div></a>
-        <a class="number-select ffVIII-circle" href=#${
+        <a class="number-select ffVIII-circle" data-scroll-id=#${
           this.#data.ffId8
         }><div class="game-circle">VIII</div></a>
-        <a class="number-select ffIX-circle" href=#${
+        <a class="number-select ffIX-circle" data-scroll-id=#${
           this.#data.ffId9
         }><div class="game-circle">IX</div></a>
-        <a class="number-select ffX-circle" href=#${
+        <a class="number-select ffX-circle" data-scroll-id=#${
           this.#data.ffId10
         }><div class="game-circle">X</div></a>
-        <a class="number-select ffXII-circle" href=#${
+        <a class="number-select ffXII-circle" data-scroll-id=#${
           this.#data.ffId12
         }><div class="game-circle">XII</div></a>
-        <a class="number-select ffXIII-circle" href=#${
+        <a class="number-select ffXIII-circle" data-scroll-id=#${
           this.#data.ffId13
         }><div class="game-circle">XIII</div></a>
-        <a class="number-select ffXV-circle" href=#${
+        <a class="number-select ffXV-circle" data-scroll-id=#${
           this.#data.ffId15
         }><div class="game-circle">XV</div></a>
         `;
@@ -95,7 +95,7 @@ class SelectView {
         : character.pictures[0].url;
     return `
     <div class="character-circle-container">
-      <a class="character-link" href="#${character.id}">
+      <a class="character-link" data-scroll-id="#${character.id}">
         <img class="character-circle" src="${characterImgs}"/>
       </a>
     </div>

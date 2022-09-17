@@ -24,6 +24,7 @@ class MainView {
       });
     });
 
+    // Necessary for using the back button to return to landing page - hash must be set to empty string - may change when deployed
     window.addEventListener("hashchange", (event) => {
       console.log(window.location);
       if (window.location.hash === "") {
