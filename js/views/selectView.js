@@ -1,6 +1,8 @@
-class SelectView {
+import View from "./View.js";
+class SelectView extends View {
   #data;
-  #quickViewEl = document.querySelector(".quick-view-grid");
+  // #quickViewEl = document.querySelector(".quick-view-grid");
+  _parentElement = document.querySelector(".quick-view-grid");
   #errorMessage =
     "We could not find that data...please try refreshing your browser.";
 
@@ -8,7 +10,7 @@ class SelectView {
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((e) => window.addEventListener(e, handler));
     // Smooth Scrolling functionality
-    this.#quickViewEl.addEventListener("click", function (e) {
+    this._parentElement.addEventListener("click", function (e) {
       if (e.target === null) return;
       else {
         const id = e.target.parentNode.getAttribute("data-scroll-id");
@@ -20,9 +22,9 @@ class SelectView {
     });
   }
 
-  #clearQuickView() {
-    this.#quickViewEl.innerHTML = "";
-  }
+  // #clearQuickView() {
+  //   this.#quickViewEl.innerHTML = "";
+  // }
 
   renderSpinner() {
     const markup = `
@@ -39,8 +41,9 @@ class SelectView {
       </p>
     </div>
   </div>`;
-    this.#clearQuickView();
-    this.#quickViewEl.insertAdjacentHTML("afterbegin", markup);
+    // this.#clearQuickView();
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   renderError(message = this.#errorMessage) {
@@ -55,16 +58,18 @@ class SelectView {
       </p>
     </div>
   </div>`;
-    this.#clearQuickView();
-    this.#quickViewEl.insertAdjacentHTML("afterbegin", markup);
+    // this.#clearQuickView();
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   //   Render landing page game select
   renderGameSelect(data) {
     this.#data = data;
     const gameSelectMarkup = this.#generateGameSelectMarkup();
-    this.#clearQuickView();
-    this.#quickViewEl.insertAdjacentHTML("afterbegin", gameSelectMarkup);
+    // this.#clearQuickView();
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", gameSelectMarkup);
   }
 
   #generateGameSelectMarkup() {
@@ -117,8 +122,9 @@ class SelectView {
   renderOriginCharacterSelect(data) {
     this.#data = data;
     const markup = this.#generateOriginMarkup();
-    this.#clearQuickView();
-    this.#quickViewEl.insertAdjacentHTML("afterbegin", markup);
+    // this.#clearQuickView();
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   #generateOriginMarkup() {
