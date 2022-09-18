@@ -66,12 +66,18 @@ body {
   letter-spacing: 0.1rem;
 }
 
+.diamond-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .diamond {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-self: center;
-  justify-self: center;
+  /* align-self: center;
+  justify-self: center; */
   background: linear-gradient(
     130deg,
     rgba(176, 8, 17, 1),
