@@ -15,6 +15,7 @@ const controlWelcomeCharacters = async function () {
 
 const controlGames = async function () {
   try {
+    SelectView.renderSpinner();
     await model.loadGame();
     SelectView.renderGameSelect(model.state.game);
     MainView.renderGameData(model.state.allGames);
@@ -30,6 +31,7 @@ const controlOrigin = async function () {
     const matchingId = id.replaceAll("_", " ");
     // console.log(matchingId);
     if (!id || !matchingId) return;
+    SelectView.renderSpinner();
     // console.log(id);
     await model.loadGame(matchingId);
     await model.loadAllCharacters(matchingId);
