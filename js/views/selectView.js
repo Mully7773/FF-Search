@@ -22,10 +22,6 @@ class SelectView extends View {
     });
   }
 
-  // #clearQuickView() {
-  //   this.#quickViewEl.innerHTML = "";
-  // }
-
   renderSpinner() {
     const markup = `
     <div class="spinner">
@@ -41,7 +37,6 @@ class SelectView extends View {
       </p>
     </div>
   </div>`;
-    // this.#clearQuickView();
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
@@ -58,7 +53,6 @@ class SelectView extends View {
       </p>
     </div>
   </div>`;
-    // this.#clearQuickView();
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
@@ -67,7 +61,6 @@ class SelectView extends View {
   renderGameSelect(data) {
     this.#data = data;
     const gameSelectMarkup = this.#generateGameSelectMarkup();
-    // this.#clearQuickView();
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", gameSelectMarkup);
   }
@@ -122,7 +115,6 @@ class SelectView extends View {
   renderOriginCharacterSelect(data) {
     this.#data = data;
     const markup = this.#generateOriginMarkup();
-    // this.#clearQuickView();
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }

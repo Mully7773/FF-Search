@@ -1,22 +1,20 @@
-class TopView {
+import View from "./View.js";
+
+class TopView extends View {
   #data;
   #logoData;
-  #introEl = document.querySelector(".section--selected-game");
+  _parentElement = document.querySelector(".section--selected-game");
 
   // Possibly export to a parent 'View'
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((e) => window.addEventListener(e, handler));
   }
 
-  #clearIntroEl() {
-    this.#introEl.innerHTML = "";
-  }
-
   renderWelcomeCharacters(data) {
     this.#data = data;
     const markup = this.#generateMarkup();
-    this.#clearIntroEl();
-    this.#introEl.insertAdjacentHTML("afterbegin", markup);
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   #generateMarkup() {
@@ -61,8 +59,8 @@ class TopView {
       <p>Character Select</p>
     </div>
     `;
-    this.#clearIntroEl();
-    this.#introEl.insertAdjacentHTML("afterbegin", markup);
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 }
 

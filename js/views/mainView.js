@@ -1,6 +1,8 @@
-class MainView {
+import View from "./View.js";
+
+class MainView extends View {
   #data;
-  #mainContentEl = document.querySelector(".main-content-grid");
+  _parentElement = document.querySelector(".main-content-grid");
 
   // Possibly export to a parent 'View'
 
@@ -45,16 +47,12 @@ class MainView {
     homeLogo.addEventListener("click", refresh);
   }
 
-  #clearMainView() {
-    this.#mainContentEl.innerHTML = "";
-  }
-
   //   Renders landing page game data
   renderGameData(data) {
     this.#data = data;
     const gameDataMarkup = this.#generateGameDataMarkup();
-    this.#clearMainView();
-    this.#mainContentEl.insertAdjacentHTML("afterbegin", gameDataMarkup);
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", gameDataMarkup);
   }
 
   #generateGameDataMarkup() {
@@ -95,12 +93,11 @@ class MainView {
   renderOriginCharacterMain(data) {
     this.#data = data;
     const characterDataMarkup = this.#generateCharacterDataMarkup();
-    this.#clearMainView();
-    this.#mainContentEl.insertAdjacentHTML("afterbegin", characterDataMarkup);
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", characterDataMarkup);
   }
 
   #generateCharacterDataMarkup() {
-    console.log(this.#data);
     return this.#data.map(this.#characterDetails).join("");
   }
 
