@@ -1,4 +1,5 @@
 import { GAME_API_URL, CHARACTER_API_URL } from "./config.js";
+import { getJSON } from "./helpers.js";
 
 export const state = {
   character: {},
@@ -15,12 +16,7 @@ export const state = {
 // For rendering game data on landing page
 export const loadGame = async function (origin) {
   try {
-    const gameRes = await fetch(`${GAME_API_URL}`);
-    const gameData = await gameRes.json();
-    if (!gameRes.ok)
-      throw new Error(`
-    HTTP error: ${response.status} \u2013 Problem getting game data
-    `);
+    const gameData = await getJSON(`${GAME_API_URL}`);
     const [...games] = gameData;
     const [...allGames] = gameData;
 
@@ -77,13 +73,7 @@ export const loadGame = async function (origin) {
 
 export const loadAllCharacters = async function (origin) {
   try {
-    const characterRes = await fetch(`${CHARACTER_API_URL}`);
-    const characterData = await characterRes.json();
-    if (!characterRes.ok)
-      throw new Error(
-        `HTTP error: ${response.status} \u2013 Problem getting character data`
-      );
-    console.log(characterData);
+    const characterData = await getJSON(`${CHARACTER_API_URL}`);
 
     // For rendering landing page welcome characters
     const [...characters] = characterData;
