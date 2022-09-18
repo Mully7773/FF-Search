@@ -200,7 +200,8 @@ body {
 /* Main Content */
 /* **************** */
 
-.spinner {
+.spinner,
+.error {
   position: absolute;
   left: 0;
   right: 0;
@@ -213,18 +214,21 @@ body {
   text-align: center;
 }
 
-.spinner-icon {
+.spinner-icon,
+.error-icon {
   height: 6rem;
   width: 6rem;
   fill: #076c8a;
   animation: rotate 2s infinite linear;
 }
 
-.loading {
+.loading,
+.errorMsg-container {
   margin-top: 1.6rem;
 }
 
-.loading-text {
+.loading-text,
+.error-text {
   color: #111;
   font-family: "Press Start 2P", cursive;
   font-size: 1.2rem;

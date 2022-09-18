@@ -68,6 +68,7 @@ export const loadGame = async function (origin) {
     );
   } catch (err) {
     console.error(`Fetch problem: ${err.message}`);
+    throw err;
   }
 };
 
@@ -91,5 +92,6 @@ export const loadAllCharacters = async function (origin) {
     );
   } catch (err) {
     console.log(err);
+    throw err;
   }
 };

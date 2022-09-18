@@ -20,6 +20,7 @@ const controlGames = async function () {
     MainView.renderGameData(model.state.allGames);
   } catch (err) {
     console.log(err);
+    SelectView.renderError();
   }
 };
 

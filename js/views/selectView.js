@@ -1,6 +1,8 @@
 class SelectView {
   #data;
   #quickViewEl = document.querySelector(".quick-view-grid");
+  #errorMessage =
+    "We could not find that data...please try refreshing your browser.";
 
   // Possibly export to a parent 'View'
   addHandlerRender(handler) {
@@ -21,6 +23,23 @@ class SelectView {
   #clearQuickView() {
     this.#quickViewEl.innerHTML = "";
   }
+
+  renderError(message = this.#errorMessage) {
+    const markup = `
+    <div class="error">
+      <img class="error-icon"
+      src="./img/Mini_Choco_Ylw-from-fandom.webp"
+    />
+    <div class="errorMsg-container">
+      <p class="error-text">
+        ${message}
+      </p>
+    </div>
+  </div>`;
+    this.#clearQuickView();
+    this.#quickViewEl.insertAdjacentHTML("afterbegin", markup);
+  }
+
   //   Render landing page game select
   renderGameSelect(data) {
     this.#data = data;
