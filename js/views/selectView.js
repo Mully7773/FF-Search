@@ -3,7 +3,7 @@ class SelectView extends View {
   #data;
   // #quickViewEl = document.querySelector(".quick-view-grid");
   _parentElement = document.querySelector(".quick-view-grid");
-  #errorMessage =
+  _errorMessage =
     "We could not find that data...please try refreshing your browser.";
 
   // Possibly export to a parent 'View'
@@ -20,41 +20,6 @@ class SelectView extends View {
         });
       }
     });
-  }
-
-  renderSpinner() {
-    const markup = `
-    <div class="spinner">
-    <img
-      class="spinner-icon"
-      src="./img/Mini_Choco_Ylw-from-fandom.webp"
-    />
-    <div class="loading">
-      <p class="loading-text">
-        Loading<span class="dot first-dot">.</span
-        ><span class="dot second-dot">.</span
-        ><span class="dot third-dot">.</span>
-      </p>
-    </div>
-  </div>`;
-    this._clear();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-
-  renderError(message = this.#errorMessage) {
-    const markup = `
-    <div class="error">
-      <img class="error-icon"
-      src="./img/Mini_Choco_Ylw-from-fandom.webp"
-    />
-    <div class="errorMsg-container">
-      <p class="error-text">
-        ${message}
-      </p>
-    </div>
-  </div>`;
-    this._clear();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   //   Render landing page game select

@@ -15,13 +15,13 @@ const controlWelcomeCharacters = async function () {
 
 const controlGames = async function () {
   try {
-    SelectView.renderSpinner();
+    SelectView._renderSpinner();
     await model.loadGame();
     SelectView.renderGameSelect(model.state.game);
     MainView.renderGameData(model.state.allGames);
   } catch (err) {
     console.log(err);
-    SelectView.renderError();
+    SelectView._renderError();
   }
 };
 
@@ -31,7 +31,7 @@ const controlOrigin = async function () {
     const matchingId = id.replaceAll("_", " ");
     // console.log(matchingId);
     if (!id || !matchingId) return;
-    SelectView.renderSpinner();
+    SelectView._renderSpinner();
     // console.log(id);
     await model.loadGame(matchingId);
     await model.loadAllCharacters(matchingId);
@@ -40,6 +40,7 @@ const controlOrigin = async function () {
     MainView.renderOriginCharacterMain(model.state.allCharacters.filtered);
   } catch (err) {
     console.log(err);
+    SelectView._renderError();
   }
 };
 
