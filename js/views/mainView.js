@@ -2,6 +2,7 @@ import View from "./View.js";
 
 class MainView extends View {
   #data;
+  #selectedGameEl = document.querySelector(".section--selected-game");
   _parentElement = document.querySelector(".main-content-grid");
 
   // Possibly export to a parent 'View'
@@ -28,7 +29,7 @@ class MainView extends View {
     // Necessary for using the back button to return to landing page - hash must be set to empty string - may change when deployed
     window.addEventListener("hashchange", (event) => {
       console.log(window.location);
-      document.body.scrollIntoView({
+      this.#selectedGameEl.scrollIntoView({
         behavior: "smooth",
       });
       if (window.location.hash === "") {
