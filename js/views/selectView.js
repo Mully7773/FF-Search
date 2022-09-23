@@ -96,11 +96,9 @@ class SelectView extends View {
         ? mogPlaceholder
         : character.pictures[0].url;
     return `
-    <div class="character-circle-container">
       <a class="character-link" data-scroll-id="#${character.id}">
         <img class="character-circle" src="${characterImgs}"/>
       </a>
-    </div>
     `;
   }
 }
