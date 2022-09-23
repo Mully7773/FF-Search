@@ -5,11 +5,8 @@ class MainView extends View {
   #selectedGameEl = document.querySelector(".section--selected-game");
   _parentElement = document.querySelector(".main-content-grid");
 
-  // Possibly export to a parent 'View'
-
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((e) => window.addEventListener(e, handler));
-    // This would also be exported to parent 'View'
     const scrollBtn = document.querySelector(".back-to-top-btn");
     const displayScrollBtnPx = 700;
     const homeLogo = document.querySelector(".diamond");

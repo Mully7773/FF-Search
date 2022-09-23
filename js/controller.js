@@ -27,7 +27,7 @@ const controlGames = async function () {
 
 const controlOrigin = async function () {
   try {
-    const id = window.location.hash.slice(1);
+    const id = window.location.hash.slice(1) || "";
     const matchingId = id.replaceAll("_", " ");
     // console.log(matchingId);
     if (!id || !matchingId) return;

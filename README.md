@@ -1,13 +1,13 @@
 # FF-Search
 
-A simple search application that utilizes the moogle API to search for Final Fantasy characters; I built it to practice fetching data using vanilla JavaScript.
+A simple, mobile responsive search application that utilizes the moogle API to search for Final Fantasy characters; I built it to practice fetching data using vanilla JavaScript. After finishing most of the project using one script, I decided to refactor the entire project using the model-view-controller (MVC) architectural pattern for a more real-world codebase, and to better organize the code structure for future development.
 
 ![License Badge](https://img.shields.io/github/license/Mully7773/FF-Search)
 ![Top Language](https://img.shields.io/github/languages/top/Mully7773/FF-Search)
 
 ## Link
 
-Coming soon
+Visit the website here: https://mully7773.github.io/FF-Search/
 
 ## Screenshots
 
@@ -34,6 +34,10 @@ HTML
 CSS
 <br>
 JavaScript
+<br>
+MVC architecture
+<br>
+Mobile responsiveness
 <br>
 moogleAPI
 
