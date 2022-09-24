@@ -166,6 +166,20 @@
   .header::before {
     font-size: 3.6rem;
   }
+
+  .selected-game-logo {
+    width: 29rem;
+    height: 13rem;
+  }
+
+  .character-img {
+    height: 34.5rem;
+    width: 31rem;
+  }
+
+  .character-description--container {
+    padding: 9.2rem;
+  }
 }
 
 /* For users who do not use animations in browser */
