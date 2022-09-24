@@ -178,7 +178,27 @@
   }
 
   .character-description--container {
-    padding: 9.2rem;
+    /* padding: 9.2rem; */
+  }
+
+  .section--selected-game {
+    width: fit-content;
+  }
+
+  .character-details-container {
+    width: fit-content;
+  }
+
+  .character-description--container {
+    width: fit-content;
+  }
+
+  .quick-view-grid {
+    grid-template-columns: 20% 20% 20%;
+  }
+
+  body {
+    width: fit-content;
   }
 }
 
