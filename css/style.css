@@ -47,6 +47,9 @@ body {
   top: 4.2rem;
 }
 
+.logo-text-EN-footer {
+  line-height: 1.6;
+}
 .ff-letters {
   position: absolute;
   left: 6.9rem;
@@ -592,6 +595,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: 12rem;
+}
+
+.footer-logo-text {
+  line-height: 1.6;
 }
 
 .logo-col {
