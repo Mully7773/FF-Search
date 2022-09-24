@@ -19,6 +19,7 @@
 
   .ff-letters-container {
     justify-self: center;
+    line-height: 1.6;
   }
 
   .search-container {
