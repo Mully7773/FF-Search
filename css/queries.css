@@ -147,6 +147,11 @@
 
 /* BELOW 399px Smartphones*/
 @media (max-width: 26em) {
+  body,
+  html {
+    max-width: 100%;
+    min-width: 100%;
+  }
   html {
     font-size: 35.5%;
   }
