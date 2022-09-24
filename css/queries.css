@@ -21,6 +21,10 @@
     justify-self: center;
   }
 
+  .search-container {
+    line-height: 1.6;
+  }
+
   .header {
     position: relative;
     overflow-y: visible;
