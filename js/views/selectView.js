@@ -90,7 +90,7 @@ class SelectView extends View {
 
   #characterCircles(character) {
     console.log(character);
-    const mogPlaceholder = `../../img/M3on3-moogle-from-fandom (2).webp`;
+    const mogPlaceholder = `../../img/M3on3-moogle-from-fandom.webp`;
     let characterImgs =
       character.pictures[0] === undefined
         ? mogPlaceholder

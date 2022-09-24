@@ -101,7 +101,7 @@ class MainView extends View {
 
   #characterDetails(character) {
     // Placeholders for missing data
-    const mogPlaceholder = `../../img/M3on3-moogle-from-fandom (2).webp`;
+    const mogPlaceholder = `../../img/M3on3-moogle-from-fandom.webp`;
     const descriptionPlaceholder = `No description data yet!`;
 
     let characterImgs =
