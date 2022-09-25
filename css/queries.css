@@ -113,7 +113,6 @@
 
   .character-data-grid {
     column-gap: 0;
-    justify-content: center;
     max-width: 50rem;
     column-gap: 4.6rem;
   }

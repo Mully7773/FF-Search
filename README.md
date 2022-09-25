@@ -11,7 +11,23 @@ Visit the website here: https://mully7773.github.io/FF-Search/
 
 ## Screenshots
 
-Coming soon
+![Screenshot of landing page](./img/screenshots/screenshot-landing-page.png)
+
+<br>
+
+![Screenshot of game view](./img/screenshots/screenshot-gameview.png)
+
+<br>
+
+![Screenshot of select view](./img/screenshots/screenshot-selectview.png)
+
+<br>
+
+![Screenshot of character view](./img/screenshots/screenshot-characterview.png)
+
+<br>
+
+![Screenshot of character view mobile](./img/screenshots/screenshot-characterview-mobile.png)
 
 <br>
 
