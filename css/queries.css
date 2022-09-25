@@ -187,7 +187,7 @@
   }
 
   .quick-view-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     /* grid-template-columns: 30% 30% 30%; */
     column-gap: 0;
     padding-left: 0;
@@ -198,7 +198,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 3rem;
   }
 }
 
