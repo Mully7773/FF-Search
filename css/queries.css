@@ -104,10 +104,18 @@
     padding: 0;
   }
 
+  .character-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .character-data-grid {
     column-gap: 0;
-    grid-template-columns: 30rem 30rem;
     justify-content: center;
+    max-width: 50rem;
+    column-gap: 4.6rem;
   }
 }
 
@@ -174,7 +182,15 @@
 
   .header::before {
     font-size: 3.6rem;
-    display: none;
+    /* display: none; */
+  }
+
+  .selected-game-logo {
+    width: 45rem;
+  }
+
+  .divider {
+    text-align: center;
   }
 
   .quick-view-flex-container {
@@ -182,13 +198,8 @@
     display: block;
   }
 
-  .character-description--container {
-    padding-right: 0;
-    /* max-width: 29rem; */
-  }
-
   .quick-view-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     /* grid-template-columns: 30% 30% 30%; */
     column-gap: 0;
     padding-left: 0;
