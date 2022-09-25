@@ -143,6 +143,10 @@
     justify-content: center;
     align-items: center;
   }
+
+  .quick-view-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 /* BELOW 399px Smartphones*/
@@ -169,23 +173,33 @@
   }
 
   .header::before {
-    /* font-size: 3.6rem; */
-    display: none;
+    font-size: 3.6rem;
   }
 
-  /* .selected-game-logo {
-    width: 29rem;
-    height: 13rem;
+  .quick-view-flex-container {
+    /* max-width: fit-content; */
+    display: block;
   }
 
-  .character-img {
-    height: 34.5rem;
-    width: 31rem;
-  } */
+  .character-description--container {
+    padding-right: 0;
+    /* max-width: 29rem; */
+  }
 
-  /* .quick-view-grid {
-    grid-template-columns: 20% 20% 20%;
-  } */
+  .quick-view-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 30% 30% 30%; */
+    column-gap: 0;
+    padding-left: 0;
+    justify-items: center;
+    align-items: center;
+  }
+  .number-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 3rem;
+  }
 }
 
 /* For users who do not use animations in browser */
