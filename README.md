@@ -7,7 +7,7 @@ A simple, mobile responsive search application that utilizes the moogle API to s
 
 ## Link
 
-Visit the website here: https://forkify-nickm.netlify.app
+Visit the website here: https://mully7773.github.io/FF-Search/
 
 ## Screenshots
 
